@@ -4,7 +4,7 @@
   "description": "Arduino client for the CircuitDigest Cloud MQTT platform.",
   "keywords": "mqtt, cloud, iot, circuitdigest",
   "authors": { "name": "Jobit Joseph", "email": "jobitjoseph1@gmail.com", "maintainer": true },
-  "repository": { "type": "git", "url": "https://github.com/circuitdigest/CircuitDigestCloud" },
+  "repository": { "type": "git", "url": "https://github.com/Circuit-Digest/CircuitDigestCloud" },
   "license": "MIT",
   "frameworks": "arduino",
   "platforms": "*",

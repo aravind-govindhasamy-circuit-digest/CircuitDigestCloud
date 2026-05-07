@@ -8,7 +8,6 @@ Arduino library for connecting any Arduino-core device to the CircuitDigest Clou
 
 ```cpp
 #include <WiFi.h>
-#include <PubSubClient.h>
 #include <CircuitDigestCloud.h>
 
 WiFiClient net;
@@ -192,6 +191,11 @@ All examples target **ESP32 and ESP8266**. Fill in your WiFi credentials and das
 
 ---
 
+## Acknowledgements
+
+This library builds on [PubSubClient](https://github.com/knolleary/pubsubclient) by **Nick O'Leary**, which handles the underlying MQTT 3.1.1 transport. PubSubClient is licensed under the MIT License.
+
+---
 ## License
 
 MIT — Copyright (c) 2026 Jobit Joseph, Circuit Digest. See [LICENSE](LICENSE).

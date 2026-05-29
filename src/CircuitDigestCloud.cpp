@@ -12,6 +12,7 @@ static const uint16_t CD_MQTT_PORT     = 1883;
 static const char CD_USERNAME_PREFIX[] = "mqtt_u_";
 static const char CD_TOPIC_ROOT[]      = "cd/users/";
 static const char CD_TOPIC_DEVICES[]   = "/devices/";
+static const char CD_MQTT_CLIENT_ID[]  = "CircuitDigestCloudDevice";
 
 CircuitDigestCloud* CircuitDigestCloud::_instance = nullptr;
 
@@ -19,7 +20,7 @@ CircuitDigestCloud* CircuitDigestCloud::_instance = nullptr;
 
 CircuitDigestCloud::CircuitDigestCloud(Client& transport)
     : _transport(transport), _pubsub(transport),
-      _credDevice(nullptr), _credUuid(nullptr),
+      _credUuid(nullptr),
       _credDevid(nullptr), _credKey(nullptr),
       _topicBase(nullptr), _username(nullptr), _topicBaseLen(0),
       _bufferSize(CD_DEFAULT_BUFFER_SIZE),
@@ -43,18 +44,18 @@ CircuitDigestCloud::~CircuitDigestCloud() {
 
 // ---- Configuration ---------------------------------------------------------
 
-bool CircuitDigestCloud::setCredentials(const char* device, const char* uuid,
+bool CircuitDigestCloud::setCredentials(const char* uuid,
                                         const char* devid,  const char* key) {
     _lastError = CD_OK;
-    if (!device || !*device || !uuid || !*uuid ||
+    if (!uuid || !*uuid ||
         !devid  || !*devid  || !key  || !*key) {
         _lastError = CD_ERR_BAD_CREDENTIALS;
         _logf("[CD] setCredentials: missing field");
         return false;
     }
-    _credDevice = device; _credUuid = uuid;
+    _credUuid = uuid;
     _credDevid  = devid;  _credKey  = key;
-    _logf("[CD] setCredentials: OK device=%s", device);
+    _logf("[CD] setCredentials: OK");
     return true;
 }
 
@@ -74,7 +75,7 @@ void CircuitDigestCloud::setDebug(Stream* stream) { _debug = stream; }
 
 bool CircuitDigestCloud::begin() {
     _lastError = CD_OK;
-    if (!_credDevice || !*_credDevice || !_credUuid || !_credDevid || !_credKey) {
+    if (!_credUuid || !_credDevid || !_credKey) {
         _lastError = CD_ERR_BAD_CREDENTIALS;
         return false;
     }
@@ -157,8 +158,8 @@ bool CircuitDigestCloud::_attemptConnect() {
     char lwtTopic[CD_TOPIC_BUFFER_SIZE];
     if (!_buildState("online", lwtTopic, sizeof(lwtTopic))) return false;
 
-    _logf("[CD] connecting as %s ...", _credDevice);
-    bool ok = _pubsub.connect(_credDevice, _username, _credKey,
+    _logf("[CD] connecting as %s ...", CD_MQTT_CLIENT_ID);
+    bool ok = _pubsub.connect(CD_MQTT_CLIENT_ID, _username, _credKey,
                               lwtTopic, 1, true, "{\"online\":0}", true);
     if (ok) {
         _state = CD_STATE_CONNECTED;
@@ -227,12 +228,12 @@ CDVariable* CircuitDigestCloud::_registerVar(const char* name, CDDirection dir, 
     return v;
 }
 
-bool CircuitDigestCloud::registerSensor(const char* name, CDType type) {
+bool CircuitDigestCloud::registerVariable(const char* name, CDType type) {
     _lastError = CD_OK;
     return _registerVar(name, CD_DIR_SENSOR, type) != nullptr;
 }
 
-bool CircuitDigestCloud::onControl(const char* name, CDControlCallback cb,
+bool CircuitDigestCloud::onChange(const char* name, CDControlCallback cb,
                                    CDAckMode ack, CDType type) {
     _lastError = CD_OK;
     if (!name || !cb) { _lastError = CD_ERR_BAD_CREDENTIALS; return false; }
@@ -245,7 +246,7 @@ bool CircuitDigestCloud::onControl(const char* name, CDControlCallback cb,
     return true;
 }
 
-void CircuitDigestCloud::onControl(CDControlCallback cb) {
+void CircuitDigestCloud::onChange(CDControlCallback cb) {
     _globalControlCb = cb;
 }
 
@@ -277,14 +278,14 @@ bool CircuitDigestCloud::_publishRaw(const char* topic, const char* payload, boo
     return ok;
 }
 
-bool CircuitDigestCloud::_doPublishSensor(const char* name, CDType type, const char* payload) {
+bool CircuitDigestCloud::_doPublishSensor(const char* name, CDType type, const char* payload, bool retain) {
     if (!_pubsub.connected()) { _lastError = CD_ERR_NOT_CONNECTED; return false; }
     CDVariable* v = _findVariable(name, CD_DIR_SENSOR);
     if (!v) v = _registerVar(name, CD_DIR_SENSOR, type);
     if (v && !v->typeLocked) { v->type = type; v->typeLocked = true; }
     if (!_buildSensor(name, _topicScratch, sizeof(_topicScratch))) return false;
     if (!payload || strlen(payload) == 0) { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
-    bool ok = _publishRaw(_topicScratch, payload, false);
+    bool ok = _publishRaw(_topicScratch, payload, retain);
     _logf("[CD] sensor %s → %s [%s]", name, payload, ok ? "ok" : "fail");
     return ok;
 }
@@ -302,35 +303,35 @@ bool CircuitDigestCloud::_doAckControl(const char* name, const char* payload) {
 
 // ---- publishSensor overloads -----------------------------------------------
 
-bool CircuitDigestCloud::publishSensor(const char* name, long value) {
+bool CircuitDigestCloud::publishSensor(const char* name, long value, bool retain) {
     _lastError = CD_OK;
     if (!cdFormatInt(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
-    return _doPublishSensor(name, CD_INT, _payloadScratch);
+    return _doPublishSensor(name, CD_INT, _payloadScratch, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, int value) {
-    return publishSensor(name, (long)value);
+bool CircuitDigestCloud::publishSensor(const char* name, int value, bool retain) {
+    return publishSensor(name, (long)value, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, float value) {
+bool CircuitDigestCloud::publishSensor(const char* name, float value, bool retain) {
     _lastError = CD_OK;
     if (!cdFormatFloat(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
-    return _doPublishSensor(name, CD_FLOAT, _payloadScratch);
+    return _doPublishSensor(name, CD_FLOAT, _payloadScratch, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, double value) {
-    return publishSensor(name, (float)value);
+bool CircuitDigestCloud::publishSensor(const char* name, double value, bool retain) {
+    return publishSensor(name, (float)value, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, bool value) {
+bool CircuitDigestCloud::publishSensor(const char* name, bool value, bool retain) {
     _lastError = CD_OK;
     if (!cdFormatBool(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
-    return _doPublishSensor(name, CD_BOOL, _payloadScratch);
+    return _doPublishSensor(name, CD_BOOL, _payloadScratch, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, const char* value) {
+bool CircuitDigestCloud::publishSensor(const char* name, const char* value, bool retain) {
     _lastError = CD_OK;
     if (!cdFormatString(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
-    return _doPublishSensor(name, CD_STRING, _payloadScratch);
+    return _doPublishSensor(name, CD_STRING, _payloadScratch, retain);
 }
 
 // ---- ackControl overloads --------------------------------------------------

@@ -24,7 +24,7 @@ public:
     explicit CircuitDigestCloud(Client& transport);
     ~CircuitDigestCloud();
 
-    bool setCredentials(const char* device, const char* uuid,
+    bool setCredentials(const char* uuid,
                         const char* devid,  const char* key);
     void setBufferSize        (uint16_t bytes);
     void setHeartbeatInterval (uint32_t seconds);
@@ -37,17 +37,17 @@ public:
     bool    connected();
     CDError lastError();
 
-    bool registerSensor(const char* name, CDType type = CD_AUTO);
-    bool onControl(const char* name, CDControlCallback cb,
+    bool registerVariable(const char* name, CDType type = CD_AUTO);
+    bool onChange(const char* name, CDControlCallback cb,
                    CDAckMode ack = CD_ACK_AUTO, CDType type = CD_AUTO);
-    void onControl(CDControlCallback cb);   // global fallback
+    void onChange(CDControlCallback cb);   // global fallback
 
-    bool publishSensor(const char* name, int         value);
-    bool publishSensor(const char* name, long        value);
-    bool publishSensor(const char* name, float       value);
-    bool publishSensor(const char* name, double      value);
-    bool publishSensor(const char* name, bool        value);
-    bool publishSensor(const char* name, const char* value);
+    bool publishSensor(const char* name, int         value, bool retain = true);
+    bool publishSensor(const char* name, long        value, bool retain = true);
+    bool publishSensor(const char* name, float       value, bool retain = true);
+    bool publishSensor(const char* name, double      value, bool retain = true);
+    bool publishSensor(const char* name, bool        value, bool retain = true);
+    bool publishSensor(const char* name, const char* value, bool retain = true);
 
     bool ackControl(const char* name, int         value);
     bool ackControl(const char* name, long        value);
@@ -60,7 +60,7 @@ private:
     Client&      _transport;
     PubSubClient _pubsub;
 
-    const char* _credDevice;
+
     const char* _credUuid;
     const char* _credDevid;
     const char* _credKey;
@@ -113,7 +113,7 @@ private:
     size_t _buildCtlGet  (const char* var, char* out, size_t cap);
     size_t _buildState   (const char* leaf, char* out, size_t cap);
 
-    bool _doPublishSensor(const char* name, CDType type, const char* payload);
+    bool _doPublishSensor(const char* name, CDType type, const char* payload, bool retain);
     bool _doAckControl   (const char* name, const char* payload);
     void _autoAckValue   (const char* varName, CDValue& val);
 

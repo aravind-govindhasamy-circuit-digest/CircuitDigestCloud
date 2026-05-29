@@ -18,9 +18,9 @@ void setup() {
     WiFi.begin("ssid", "password");
     while (WiFi.status() != WL_CONNECTED) delay(200);
 
-    cd.setCredentials("MyDevice", "uuid", "devid", "key");
+    cd.setCredentials("uuid", "devid", "key");
     cd.setDebug(&Serial);   // comment out for production
-    cd.registerSensor("temperature", CD_FLOAT);
+    cd.registerVariable("temperature", CD_FLOAT);
     cd.begin();
 }
 
@@ -57,7 +57,6 @@ Find your credentials in the CircuitDigest Cloud dashboard:
 
 | Parameter | Dashboard field |
 |---|---|
-| `device` | MQTT Client ID |
 | `uuid` | User UUID |
 | `devid` | Device ID |
 | `key` | Device Key |
@@ -69,7 +68,7 @@ Find your credentials in the CircuitDigest Cloud dashboard:
 | Method | Description |
 |---|---|
 | `CircuitDigestCloud(Client&)` | Constructor. Pass your transport client. |
-| `setCredentials(device, uuid, devid, key)` | Set MQTT credentials. Call before `begin()`. Returns `false` if any field is empty. |
+| `setCredentials(uuid, devid, key)` | Set MQTT credentials. Call before `begin()`. Returns `false` if any field is empty. |
 | `setBufferSize(bytes)` | PubSubClient buffer size. Default 512, min 256. |
 | `setHeartbeatInterval(seconds)` | Heartbeat cadence. Default 60. `0` disables. |
 | `setAutoAck(bool)` | Global auto-ack default. Default `true`. |
@@ -78,10 +77,10 @@ Find your credentials in the CircuitDigest Cloud dashboard:
 | `loop()` | Call every iteration of `loop()`. Drives connection, MQTT pump, heartbeat. |
 | `connected()` | Returns `true` when MQTT is up. |
 | `lastError()` | Last `CDError` code. Read immediately after a method returns `false`. |
-| `registerSensor(name, type)` | Pre-register a sensor variable (optional). |
-| `onControl(name, cb, ack, type)` | Register a control callback. |
-| `onControl(cb)` | Global fallback for unregistered controls. |
-| `publishSensor(name, value)` | Publish sensor reading. Accepts int/long/float/double/bool/const char*. |
+| `registerVariable(name, type)` | Pre-register a sensor variable (optional). |
+| `onChange(name, cb, ack, type)` | Register a control callback. |
+| `onChange(cb)` | Global fallback for unregistered controls. |
+| `publishSensor(name, value, retain)` | Publish sensor reading. Accepts int/long/float/double/bool/const char*. `retain` (default `true`) keeps the message on the broker. |
 | `ackControl(name, value)` | Publish control acknowledgement (use with `CD_ACK_MANUAL`). |
 
 ---
@@ -136,7 +135,7 @@ Cross-type conversion rules:
 - **`CD_ACK_MANUAL`**: library does not ack. You must call `cd.ackControl(name, actualValue)` — typically after reading back the hardware state.
 
 ```cpp
-cd.onControl("relay", handleRelay, CD_ACK_MANUAL);
+cd.onChange("relay", handleRelay, CD_ACK_MANUAL);
 
 void handleRelay(const char* var, CDValue v) {
     digitalWrite(RELAY_PIN, v.asBool() ? HIGH : LOW);
@@ -171,7 +170,7 @@ Every log line is prefixed `[CD] `. Disable for production.
 
 ## One Instance Per Sketch
 
-Only one `CircuitDigestCloud` instance is supported per sketch (v1.0). A second instance overwrites the internal MQTT callback pointer, breaking the first.
+Only one `CircuitDigestCloud` instance is supported per sketch (v1.0.2). A second instance overwrites the internal MQTT callback pointer, breaking the first.
 
 ---
 
@@ -181,7 +180,7 @@ Five examples are included under `examples/`:
 
 | Sketch | What it shows |
 |---|---|
-| `01_SensorAndControl` | Publish a temperature sensor + control GPIO 8 from the dashboard — **start here** |
+| `01_SensorAndControl` | Publish a temperature sensor + control GPIO 2 from the dashboard — **start here** |
 | `02_BasicSensor` | Publish a single float sensor every 5 seconds, no controls |
 | `03_BasicControl` | Receive a boolean control and drive `LED_BUILTIN`, auto-ack |
 | `04_AllVariableTypes` | All five types as sensors and controls in one sketch |

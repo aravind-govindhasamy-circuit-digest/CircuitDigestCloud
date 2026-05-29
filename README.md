@@ -170,7 +170,7 @@ Every log line is prefixed `[CD] `. Disable for production.
 
 ## One Instance Per Sketch
 
-Only one `CircuitDigestCloud` instance is supported per sketch (v1.0.3). A second instance overwrites the internal MQTT callback pointer, breaking the first.
+Only one `CircuitDigestCloud` instance is supported per sketch (v1.0.4). A second instance overwrites the internal MQTT callback pointer, breaking the first. The library uses your `MQTT_DEVICE_ID` as the MQTT client ID, so each device connects with a unique identity.
 
 ---
 

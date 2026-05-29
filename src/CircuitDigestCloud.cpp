@@ -12,7 +12,6 @@ static const uint16_t CD_MQTT_PORT     = 1883;
 static const char CD_USERNAME_PREFIX[] = "mqtt_u_";
 static const char CD_TOPIC_ROOT[]      = "cd/users/";
 static const char CD_TOPIC_DEVICES[]   = "/devices/";
-static const char CD_MQTT_CLIENT_ID[]  = "CircuitDigestCloudDevice";
 
 CircuitDigestCloud* CircuitDigestCloud::_instance = nullptr;
 
@@ -158,8 +157,8 @@ bool CircuitDigestCloud::_attemptConnect() {
     char lwtTopic[CD_TOPIC_BUFFER_SIZE];
     if (!_buildState("online", lwtTopic, sizeof(lwtTopic))) return false;
 
-    _logf("[CD] connecting as %s ...", CD_MQTT_CLIENT_ID);
-    bool ok = _pubsub.connect(CD_MQTT_CLIENT_ID, _username, _credKey,
+    _logf("[CD] connecting as %s ...", _credDevid);
+    bool ok = _pubsub.connect(_credDevid, _username, _credKey,
                               lwtTopic, 1, true, "{\"online\":0}", true);
     if (ok) {
         _state = CD_STATE_CONNECTED;

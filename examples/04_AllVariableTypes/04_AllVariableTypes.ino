@@ -82,10 +82,10 @@ void loop() {
   if (millis() - last > 5000) {
     last = millis();
 
-    // publishSensor(name, value, retain) — retain defaults to true (kept on broker)
-    cd.publishSensor("temperature", 22.5f + count * 0.1f);
-    cd.publishSensor("count", count++);
-    cd.publishSensor("presence", (count % 2 == 0));
-    cd.publishSensor("mode_status", count % 3 == 0 ? "idle" : "active");
+    // publishVariable(name, value, retain) — retain defaults to true (kept on broker)
+    cd.publishVariable("temperature", 22.5f + count * 0.1f);
+    cd.publishVariable("count", count++);
+    cd.publishVariable("presence", (count % 2 == 0));
+    cd.publishVariable("mode_status", count % 3 == 0 ? "idle" : "active");
   }
 }

@@ -12,10 +12,10 @@ setDebug	KEYWORD2
 begin	KEYWORD2
 loop	KEYWORD2
 connected	KEYWORD2
-registerSensor	KEYWORD2
-onControl	KEYWORD2
-publishSensor	KEYWORD2
-ackControl	KEYWORD2
+registerVariable	KEYWORD2
+onChange	KEYWORD2
+publishVariable	KEYWORD2
+ackChange	KEYWORD2
 lastError	KEYWORD2
 
 CD_AUTO	LITERAL1

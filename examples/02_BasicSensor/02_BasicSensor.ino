@@ -42,7 +42,7 @@ void setup() {
   // disabled)
 
   // Types: CD_AUTO | CD_INT | CD_FLOAT | CD_BOOL | CD_STRING | CD_ENUM
-  // Pre-registering is optional — publishSensor() auto-registers on first use.
+  // Pre-registering is optional — publishVariable() auto-registers on first use.
   cd.registerVariable("temperature", CD_FLOAT);
 
   cd.begin(); // validates credentials; connection starts on first loop()
@@ -56,7 +56,7 @@ void loop() {
     last = millis();
     float t = 24.0f + (millis() % 1000) / 1000.0f; // dummy reading
 
-    // publishSensor(name, value, retain) — retain defaults to true (kept on broker)
-    cd.publishSensor("temperature", t);
+    // publishVariable(name, value, retain) — retain defaults to true (kept on broker)
+    cd.publishVariable("temperature", t);
   }
 }

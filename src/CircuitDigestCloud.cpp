@@ -301,66 +301,66 @@ bool CircuitDigestCloud::_doAckControl(const char* name, const char* payload) {
     return ok;
 }
 
-// ---- publishSensor overloads -----------------------------------------------
+// ---- publishVariable overloads -----------------------------------------------
 
-bool CircuitDigestCloud::publishSensor(const char* name, long value, bool retain) {
+bool CircuitDigestCloud::publishVariable(const char* name, long value, bool retain) {
     _lastError = CD_OK;
     if (!cdFormatInt(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
     return _doPublishSensor(name, CD_INT, _payloadScratch, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, int value, bool retain) {
-    return publishSensor(name, (long)value, retain);
+bool CircuitDigestCloud::publishVariable(const char* name, int value, bool retain) {
+    return publishVariable(name, (long)value, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, float value, bool retain) {
+bool CircuitDigestCloud::publishVariable(const char* name, float value, bool retain) {
     _lastError = CD_OK;
     if (!cdFormatFloat(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
     return _doPublishSensor(name, CD_FLOAT, _payloadScratch, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, double value, bool retain) {
-    return publishSensor(name, (float)value, retain);
+bool CircuitDigestCloud::publishVariable(const char* name, double value, bool retain) {
+    return publishVariable(name, (float)value, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, bool value, bool retain) {
+bool CircuitDigestCloud::publishVariable(const char* name, bool value, bool retain) {
     _lastError = CD_OK;
     if (!cdFormatBool(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
     return _doPublishSensor(name, CD_BOOL, _payloadScratch, retain);
 }
-bool CircuitDigestCloud::publishSensor(const char* name, const char* value, bool retain) {
+bool CircuitDigestCloud::publishVariable(const char* name, const char* value, bool retain) {
     _lastError = CD_OK;
     if (!cdFormatString(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
     return _doPublishSensor(name, CD_STRING, _payloadScratch, retain);
 }
 
-// ---- ackControl overloads --------------------------------------------------
+// ---- ackChange overloads --------------------------------------------------
 
-bool CircuitDigestCloud::ackControl(const char* name, long value) {
+bool CircuitDigestCloud::ackChange(const char* name, long value) {
     _lastError = CD_OK;
     if (!cdFormatInt(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
     return _doAckControl(name, _payloadScratch);
 }
-bool CircuitDigestCloud::ackControl(const char* name, int value) {
-    return ackControl(name, (long)value);
+bool CircuitDigestCloud::ackChange(const char* name, int value) {
+    return ackChange(name, (long)value);
 }
-bool CircuitDigestCloud::ackControl(const char* name, float value) {
+bool CircuitDigestCloud::ackChange(const char* name, float value) {
     _lastError = CD_OK;
     if (!cdFormatFloat(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
     return _doAckControl(name, _payloadScratch);
 }
-bool CircuitDigestCloud::ackControl(const char* name, double value) {
-    return ackControl(name, (float)value);
+bool CircuitDigestCloud::ackChange(const char* name, double value) {
+    return ackChange(name, (float)value);
 }
-bool CircuitDigestCloud::ackControl(const char* name, bool value) {
+bool CircuitDigestCloud::ackChange(const char* name, bool value) {
     _lastError = CD_OK;
     if (!cdFormatBool(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }
     return _doAckControl(name, _payloadScratch);
 }
-bool CircuitDigestCloud::ackControl(const char* name, const char* value) {
+bool CircuitDigestCloud::ackChange(const char* name, const char* value) {
     _lastError = CD_OK;
     if (!cdFormatString(_payloadScratch, sizeof(_payloadScratch), name, value))
         { _lastError = CD_ERR_PAYLOAD_TOO_LONG; return false; }

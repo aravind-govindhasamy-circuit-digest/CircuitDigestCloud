@@ -29,18 +29,18 @@ const char *MQTT_KEY = "your-key-here";         // Device Key from dashboard
 WiFiClient net;
 CircuitDigestCloud cd(net);
 
-// CD_ACK_MANUAL: you must call cd.ackControl() yourself.
+// CD_ACK_MANUAL: you must call cd.ackChange() yourself.
 // Best practice: read back actual GPIO state so the dashboard reflects reality.
 void handleRelay1(const char *var, CDValue v) {
   digitalWrite(RELAY1_PIN, v.asBool() ? HIGH : LOW);
   bool actual = digitalRead(RELAY1_PIN) == HIGH;
-  cd.ackControl("relay_1", actual); // ack with real state
+  cd.ackChange("relay_1", actual); // ack with real state
 }
 
 void handleRelay2(const char *var, CDValue v) {
   digitalWrite(RELAY2_PIN, v.asBool() ? HIGH : LOW);
   bool actual = digitalRead(RELAY2_PIN) == HIGH;
-  cd.ackControl("relay_2", actual);
+  cd.ackChange("relay_2", actual);
 }
 
 // CD_ACK_AUTO: library acks automatically after callback — no manual ack

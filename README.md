@@ -29,7 +29,7 @@ void loop() {
     static uint32_t last = 0;
     if (millis() - last > 5000) {
         last = millis();
-        cd.publishSensor("temperature", 25.3f);
+        cd.publishVariable("temperature", 25.3f);
     }
 }
 ```
@@ -80,8 +80,8 @@ Find your credentials in the CircuitDigest Cloud dashboard:
 | `registerVariable(name, type)` | Pre-register a sensor variable (optional). |
 | `onChange(name, cb, ack, type)` | Register a control callback. |
 | `onChange(cb)` | Global fallback for unregistered controls. |
-| `publishSensor(name, value, retain)` | Publish sensor reading. Accepts int/long/float/double/bool/const char*. `retain` (default `true`) keeps the message on the broker. |
-| `ackControl(name, value)` | Publish control acknowledgement (use with `CD_ACK_MANUAL`). |
+| `publishVariable(name, value, retain)` | Publish sensor reading. Accepts int/long/float/double/bool/const char*. `retain` (default `true`) keeps the message on the broker. |
+| `ackChange(name, value)` | Publish control acknowledgement (use with `CD_ACK_MANUAL`). |
 
 ---
 
@@ -132,7 +132,7 @@ Cross-type conversion rules:
 ## Auto-Ack vs Manual Ack
 
 - **`CD_ACK_AUTO`** (default): library publishes the ack automatically after your callback returns, echoing the received value.
-- **`CD_ACK_MANUAL`**: library does not ack. You must call `cd.ackControl(name, actualValue)` — typically after reading back the hardware state.
+- **`CD_ACK_MANUAL`**: library does not ack. You must call `cd.ackChange(name, actualValue)` — typically after reading back the hardware state.
 
 ```cpp
 cd.onChange("relay", handleRelay, CD_ACK_MANUAL);
@@ -140,7 +140,7 @@ cd.onChange("relay", handleRelay, CD_ACK_MANUAL);
 void handleRelay(const char* var, CDValue v) {
     digitalWrite(RELAY_PIN, v.asBool() ? HIGH : LOW);
     bool actual = digitalRead(RELAY_PIN) == HIGH;
-    cd.ackControl("relay", actual);   // ack with real state
+    cd.ackChange("relay", actual);   // ack with real state
 }
 ```
 
@@ -170,7 +170,7 @@ Every log line is prefixed `[CD] `. Disable for production.
 
 ## One Instance Per Sketch
 
-Only one `CircuitDigestCloud` instance is supported per sketch (v1.0.2). A second instance overwrites the internal MQTT callback pointer, breaking the first.
+Only one `CircuitDigestCloud` instance is supported per sketch (v1.0.3). A second instance overwrites the internal MQTT callback pointer, breaking the first.
 
 ---
 

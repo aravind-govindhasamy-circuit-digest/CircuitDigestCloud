@@ -58,7 +58,7 @@ void setup() {
   // CD_ENUM
   cd.registerVariable("temperature", CD_FLOAT);
 
-  // ackMode: CD_ACK_AUTO (default) | CD_ACK_MANUAL (you call cd.ackControl())
+  // ackMode: CD_ACK_AUTO (default) | CD_ACK_MANUAL (you call cd.ackChange())
   cd.onChange("gpio", handleGpio, CD_ACK_AUTO, CD_BOOL);
 
   cd.begin(); // validates credentials; connection starts on first loop()
@@ -76,7 +76,7 @@ void loop() {
     if (temp > 30.0f)
       temp = 20.0f;
 
-    // publishSensor(name, value, retain) — retain defaults to true (kept on broker)
-    cd.publishSensor("temperature", temp);
+    // publishVariable(name, value, retain) — retain defaults to true (kept on broker)
+    cd.publishVariable("temperature", temp);
   }
 }

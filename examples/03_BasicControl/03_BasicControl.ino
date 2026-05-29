@@ -44,7 +44,7 @@ void setup() {
   cd.setCredentials(MQTT_USER_ID, MQTT_DEVICE_ID, MQTT_KEY);
   cd.setDebug(&Serial); // prints debug messages to Serial
 
-  // ackMode: CD_ACK_AUTO (default) | CD_ACK_MANUAL (you call cd.ackControl())
+  // ackMode: CD_ACK_AUTO (default) | CD_ACK_MANUAL (you call cd.ackChange())
   // type:    CD_AUTO | CD_INT | CD_FLOAT | CD_BOOL | CD_STRING | CD_ENUM
   cd.onChange("light_1", handleLight); // CD_ACK_AUTO + CD_AUTO by default
 

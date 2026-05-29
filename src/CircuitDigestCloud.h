@@ -42,19 +42,19 @@ public:
                    CDAckMode ack = CD_ACK_AUTO, CDType type = CD_AUTO);
     void onChange(CDControlCallback cb);   // global fallback
 
-    bool publishSensor(const char* name, int         value, bool retain = true);
-    bool publishSensor(const char* name, long        value, bool retain = true);
-    bool publishSensor(const char* name, float       value, bool retain = true);
-    bool publishSensor(const char* name, double      value, bool retain = true);
-    bool publishSensor(const char* name, bool        value, bool retain = true);
-    bool publishSensor(const char* name, const char* value, bool retain = true);
+    bool publishVariable(const char* name, int         value, bool retain = true);
+    bool publishVariable(const char* name, long        value, bool retain = true);
+    bool publishVariable(const char* name, float       value, bool retain = true);
+    bool publishVariable(const char* name, double      value, bool retain = true);
+    bool publishVariable(const char* name, bool        value, bool retain = true);
+    bool publishVariable(const char* name, const char* value, bool retain = true);
 
-    bool ackControl(const char* name, int         value);
-    bool ackControl(const char* name, long        value);
-    bool ackControl(const char* name, float       value);
-    bool ackControl(const char* name, double      value);
-    bool ackControl(const char* name, bool        value);
-    bool ackControl(const char* name, const char* value);
+    bool ackChange(const char* name, int         value);
+    bool ackChange(const char* name, long        value);
+    bool ackChange(const char* name, float       value);
+    bool ackChange(const char* name, double      value);
+    bool ackChange(const char* name, bool        value);
+    bool ackChange(const char* name, const char* value);
 
 private:
     Client&      _transport;

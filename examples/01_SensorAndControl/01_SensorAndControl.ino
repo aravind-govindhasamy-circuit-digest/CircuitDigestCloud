@@ -6,35 +6,43 @@
 
 #if defined(ESP32)
 #include <WiFi.h>
+#include <WiFiClientSecure.h>
 #elif defined(ESP8266)
 #include <ESP8266WiFi.h>
+#include <WiFiClientSecure.h>
 #else
 #error                                                                         \
-    "This example targets ESP32 or ESP8266. The library supports any Arduino-core board."
+    "This example targets ESP32 or ESP8266. The library supports any Arduino-core board with a TLS Client."
 #endif
 #include <CircuitDigestCloud.h>
 
 // ---- FILL ME IN ------------------------------------------------------------
 const char *WIFI_SSID = "your_ssid";
 const char *WIFI_PASS = "your_password";
-const char *MQTT_USER_ID = "your-uuid-here";    // User UUID from dashboard
-const char *MQTT_DEVICE_ID = "your-devid-here"; // Device ID from dashboard
-const char *MQTT_KEY = "your-key-here";         // Device Key from dashboard
+const char *DEVICE_ID = "your-devid-here";          // Physical Device ID (device setup panel)
+const char *CONNECTION_KEY = "your-key-here"; // Connection Key (device setup panel)
+// Slots are shown next to each variable on the dashboard.
+const char *TEMPERATURE_SLOT = "temperature-1"; // a CD_FLOAT sensor variable
+//const char *GPIO_SLOT = "status0";       // a CD_BOOL/CD_STRING control variable
 // ---------------------------------------------------------------------------
 
 #define GPIO_PIN 2
 
-WiFiClient net;
+WiFiClientSecure net;
 CircuitDigestCloud cd(net);
 
-// Control callback — v.asBool() / v.asInt() / v.asFloat() / v.asString() /
-// v.type()
+void resetTransport() {
+  net.stop();
+  net.setInsecure();
+}
+
+// Control callback — v.asBool() / v.asInt() / v.asFloat() / v.asString() / v.type()
 void handleGpio(const char *var, CDValue v) {
   bool state = v.asBool();
   digitalWrite(GPIO_PIN, state ? HIGH : LOW);
   Serial.print("GPIO → ");
   Serial.println(state ? "ON" : "OFF");
-  // CD_ACK_AUTO echoes the value back automatically — no manual ack needed.
+  // CD_ACK_AUTO reports the value back automatically — no manual ack needed.
 }
 
 void setup() {
@@ -51,21 +59,24 @@ void setup() {
   }
   Serial.println(" connected");
 
-  cd.setCredentials(MQTT_USER_ID, MQTT_DEVICE_ID, MQTT_KEY);
+  net.setInsecure(); // dev only — pin the Anedya CA for production
+  cd.setTransportResetCallback(resetTransport);
+
+  cd.setCredentials(DEVICE_ID, CONNECTION_KEY);
   cd.setDebug(&Serial); // prints debug messages to Serial
 
-  // Types: CD_AUTO (default) | CD_INT | CD_FLOAT | CD_BOOL | CD_STRING |
-  // CD_ENUM
-  cd.registerVariable("temperature", CD_FLOAT);
+  // registerVariable(name, type, slot)
+  cd.registerVariable("temperature", CD_FLOAT, TEMPERATURE_SLOT);
 
+  // onChange(name, cb, ackMode, type, slot)
   // ackMode: CD_ACK_AUTO (default) | CD_ACK_MANUAL (you call cd.ackChange())
-  cd.onChange("gpio", handleGpio, CD_ACK_AUTO, CD_BOOL);
+  //cd.onChange("gpio", handleGpio, CD_ACK_AUTO, CD_BOOL, GPIO_SLOT);
 
   cd.begin(); // validates credentials; connection starts on first loop()
 }
 
 void loop() {
-  cd.loop(); // drives connection, MQTT pump, heartbeat — call every iteration
+  cd.loop(); // drives connection + MQTT pump — call every iteration
 
   static uint32_t last = 0;
   if (millis() - last > 5000) {
@@ -76,7 +87,6 @@ void loop() {
     if (temp > 30.0f)
       temp = 20.0f;
 
-    // publishVariable(name, value, retain) — retain defaults to true (kept on broker)
     cd.publishVariable("temperature", temp);
   }
 }

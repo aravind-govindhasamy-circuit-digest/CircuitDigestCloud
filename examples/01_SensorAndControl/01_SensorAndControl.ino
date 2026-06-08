@@ -22,8 +22,10 @@ const char *WIFI_PASS = "your_password";
 const char *DEVICE_ID = "your-devid-here";          // Physical Device ID (device setup panel)
 const char *CONNECTION_KEY = "your-key-here"; // Connection Key (device setup panel)
 // Slots are shown next to each variable on the dashboard.
-const char *TEMPERATURE_SLOT = "temperature-1"; // a CD_FLOAT sensor variable
-//const char *GPIO_SLOT = "status0";       // a CD_BOOL/CD_STRING control variable
+const char *TEMPERATURE_SLOT = "temperature-1"; // sensor variable  — direction: input
+const char *GPIO_SLOT         = "light-1";        // control variable — direction: output, type: boolean
+                                                  // Dashboard: Add Variable (key "light-1", boolean, output)
+                                                  //            Add Widget   → Toggle or Switch, metric_key "light-1"
 // ---------------------------------------------------------------------------
 
 #define GPIO_PIN 2
@@ -65,12 +67,12 @@ void setup() {
   cd.setCredentials(DEVICE_ID, CONNECTION_KEY);
   cd.setDebug(&Serial); // prints debug messages to Serial
 
-  // registerVariable(name, type, slot)
+  // Sensor: publishes readings when you call cd.publishVariable("temperature", temp)
   cd.registerVariable("temperature", CD_FLOAT, TEMPERATURE_SLOT);
 
-  // onChange(name, cb, ackMode, type, slot)
-  // ackMode: CD_ACK_AUTO (default) | CD_ACK_MANUAL (you call cd.ackChange())
-  //cd.onChange("gpio", handleGpio, CD_ACK_AUTO, CD_BOOL, GPIO_SLOT);
+  // Control: dashboard writes fire handleGpio. CD_ACK_AUTO publishes the new
+  // value back so the dashboard widget confirms (and the slider/toggle stops blinking).
+  cd.onChange("gpio", handleGpio, CD_ACK_AUTO, CD_BOOL, GPIO_SLOT);
 
   cd.begin(); // validates credentials; connection starts on first loop()
 }

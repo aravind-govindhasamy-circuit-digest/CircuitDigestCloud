@@ -3,8 +3,10 @@
 #pragma once
 #include "CDTypes.h"
 
-// asString() is valid only during the callback in which it was delivered.
-// Copy it if you need to retain it beyond the callback.
+// IMPORTANT — asString() returns a pointer into an internal 64-byte buffer that is
+// overwritten on the next inbound MQTT message. The pointer is only valid during the
+// control callback; if you need the string after the callback returns, copy it:
+//   char buf[64]; strlcpy(buf, v.asString(), sizeof(buf));
 class CDValue {
 public:
     CDValue();

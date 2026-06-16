@@ -7,7 +7,10 @@
 #define CD_TOPIC_BUFFER_SIZE 160
 #endif
 #ifndef CD_PAYLOAD_BUFFER_SIZE
-#define CD_PAYLOAD_BUFFER_SIZE 96
+#define CD_PAYLOAD_BUFFER_SIZE 192  // holds a single JSON value token (doubles capacity for string values)
+#endif
+#ifndef CD_SUBMIT_BUFFER_SIZE
+#define CD_SUBMIT_BUFFER_SIZE 256   // holds the full Anedya submitdata payload
 #endif
 #ifndef CD_INBOUND_STRING_BUFFER
 #define CD_INBOUND_STRING_BUFFER 64
@@ -21,6 +24,9 @@
 #ifndef CD_BACKOFF_MAX_S
 #define CD_BACKOFF_MAX_S 30
 #endif
+#ifndef CD_DEFAULT_REGION
+#define CD_DEFAULT_REGION "ap-in-1"
+#endif
 
 enum CDType : uint8_t {
     CD_AUTO   = 0,
@@ -28,7 +34,8 @@ enum CDType : uint8_t {
     CD_FLOAT  = 2,
     CD_BOOL   = 3,
     CD_STRING = 4,
-    CD_ENUM   = 5
+    CD_ENUM   = 5,
+    CD_GEO    = 6  // reserved — geo/location types not yet supported in this release
 };
 
 enum CDAckMode : uint8_t {

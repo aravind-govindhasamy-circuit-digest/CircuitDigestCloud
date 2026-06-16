@@ -1,6 +1,23 @@
 # CircuitDigestCloud
 
-Arduino library for connecting any Arduino-core device to the CircuitDigest Cloud MQTT platform. Transport-agnostic — works with WiFi, Ethernet, GSM, or any `Client`-compatible transport.
+Arduino library for connecting any Arduino-core device to the **CircuitDigest Cloud** MQTT platform
+(backed by [Anedya](https://anedya.io)). Transport-agnostic — works with WiFi, Ethernet, GSM, or any
+TLS-capable `Client`. Anedya MQTT requires TLS on port 8883.
+
+---
+
+## How variables map to "slots"
+
+CircuitDigest Cloud stores telemetry in a fixed catalog of project **slots** — semantic keys like
+`temperature-1`, `humidity-1`, `voltage-1` (hyphens only; Anedya identifiers can't contain underscores).
+When you create a variable on the dashboard you pick a catalog key; that key is the slot. In your sketch you
+keep a friendly name and tell the library which slot it maps to — copy the slot from the device setup panel.
+
+```cpp
+dashboard:  Motor Temp  → temperature-1
+sketch:     cd.registerVariable("temperature", CD_FLOAT, "temperature-1");
+            cd.publishVariable("temperature", 25.3f);   // published to temperature-1
+```
 
 ---
 
@@ -8,9 +25,10 @@ Arduino library for connecting any Arduino-core device to the CircuitDigest Clou
 
 ```cpp
 #include <WiFi.h>
+#include <WiFiClientSecure.h>
 #include <CircuitDigestCloud.h>
 
-WiFiClient net;
+WiFiClientSecure net;          // TLS required (port 8883)
 CircuitDigestCloud cd(net);
 
 void setup() {
@@ -18,9 +36,11 @@ void setup() {
     WiFi.begin("ssid", "password");
     while (WiFi.status() != WL_CONNECTED) delay(200);
 
-    cd.setCredentials("uuid", "devid", "key");
-    cd.setDebug(&Serial);   // comment out for production
-    cd.registerVariable("temperature", CD_FLOAT);
+    net.setInsecure();         // dev only — pin the Anedya CA for production
+
+    cd.setCredentials("device-id", "connection-key");  // Physical Device ID + Connection Key from the device setup panel
+    cd.setDebug(&Serial);                            // comment out for production
+    cd.registerVariable("temperature", CD_FLOAT, "float0");
     cd.begin();
 }
 
@@ -47,19 +67,20 @@ void loop() {
 lib_deps = CircuitDigestCloud
 ```
 
-**Required dependency:** [PubSubClient](https://github.com/knolleary/pubsubclient) ≥ 2.8 (installed automatically via Library Manager).
+**Required dependency:** [PubSubClient](https://github.com/knolleary/pubsubclient) ≥ 2.8.
+You also need a TLS client (`WiFiClientSecure` is bundled with the ESP32/ESP8266 cores).
 
 ---
 
 ## Credentials
 
-Find your credentials in the CircuitDigest Cloud dashboard:
+Find these in the CircuitDigest Cloud dashboard → device setup panel:
 
 | Parameter | Dashboard field |
 |---|---|
-| `uuid` | User UUID |
-| `devid` | Device ID |
-| `key` | Device Key |
+| `deviceId` | Physical Device ID (the device bound to the node — NOT the Anedya node id) |
+| `connectionKey` | Connection Key |
+| slot (per variable) | Slot column next to each variable (e.g. `float0`) |
 
 ---
 
@@ -67,134 +88,130 @@ Find your credentials in the CircuitDigest Cloud dashboard:
 
 | Method | Description |
 |---|---|
-| `CircuitDigestCloud(Client&)` | Constructor. Pass your transport client. |
-| `setCredentials(uuid, devid, key)` | Set MQTT credentials. Call before `begin()`. Returns `false` if any field is empty. |
+| `CircuitDigestCloud(Client&)` | Constructor. Pass a TLS-capable transport client. |
+| `setCredentials(deviceId, connectionKey)` | Set Anedya MQTT credentials. Call before `begin()`. |
+| `setRegion(region)` | Anedya region; sets broker to `mqtt.<region>.anedya.io`. Default `ap-in-1`. |
+| `setServer(host, port)` | Override broker host/port directly. |
 | `setBufferSize(bytes)` | PubSubClient buffer size. Default 512, min 256. |
-| `setHeartbeatInterval(seconds)` | Heartbeat cadence. Default 60. `0` disables. |
-| `setAutoAck(bool)` | Global auto-ack default. Default `true`. |
+| `setHeartbeatInterval(seconds)` | MQTT keepalive cadence used for liveness. Default 60. |
+| `setAutoAck(bool)` | Global auto-ack default for controls. Default `true`. |
 | `setDebug(Stream*)` | Enable debug logging (e.g. `&Serial`). `nullptr` disables. |
 | `begin()` | Initialize. Returns `false` on bad credentials. Connection is lazy. |
-| `loop()` | Call every iteration of `loop()`. Drives connection, MQTT pump, heartbeat. |
-| `connected()` | Returns `true` when MQTT is up. |
+| `loop()` | Call every iteration. Drives connection + MQTT pump. Never blocks. |
+| `connected()` | `true` when MQTT is up. |
 | `lastError()` | Last `CDError` code. Read immediately after a method returns `false`. |
-| `registerVariable(name, type)` | Pre-register a sensor variable (optional). |
-| `onChange(name, cb, ack, type)` | Register a control callback. |
-| `onChange(cb)` | Global fallback for unregistered controls. |
-| `publishVariable(name, value, retain)` | Publish sensor reading. Accepts int/long/float/double/bool/const char*. `retain` (default `true`) keeps the message on the broker. |
-| `ackChange(name, value)` | Publish control acknowledgement (use with `CD_ACK_MANUAL`). |
+| `registerVariable(name, type, slot)` | Map a sensor variable name to its dashboard slot. |
+| `onChange(name, cb, ack, type, slot)` | Register a control callback for a variable + slot. |
+| `onChange(cb)` | Global fallback for unhandled controls. |
+| `publishVariable(name, value, retain)` | Publish a sensor reading to the variable's slot. int/long/float/double/bool/const char*. |
+| `ackChange(name, value)` | Report a control's actual value back to its slot. |
+
+If you omit the `slot` argument (or pass `nullptr`), the `name` itself is used as the slot — useful if you
+want to publish straight to a slot like `cd.publishVariable("float0", v)`.
 
 ---
 
 ## Variable Types
 
-| Constant | Wire format | C++ type |
-|---|---|---|
-| `CD_INT` | bare number | `long` |
-| `CD_FLOAT` | bare number | `float` |
-| `CD_BOOL` | `true`/`false` | `bool` |
-| `CD_STRING` | quoted string | `const char*` |
-| `CD_ENUM` | quoted string (semantic alias) | `const char*` |
-| `CD_AUTO` | auto-detected on first use | — |
+| Constant | Wire format | C++ type | Slot family |
+|---|---|---|---|
+| `CD_INT` | bare number | `long` | float |
+| `CD_FLOAT` | bare number | `float` | float |
+| `CD_BOOL` | `true`/`false` | `bool` | float |
+| `CD_STRING` | quoted string | `const char*` | status |
+| `CD_ENUM` | quoted string | `const char*` | status |
+| `CD_AUTO` | auto-detected on first use | — | — |
 
-### `CDValue` — inbound payload
+> Geo (lat/long) variables are not supported in this release.
+
+### `CDValue` — inbound control payload
 
 ```cpp
 void handleControl(const char* var, CDValue v) {
-    // Type check
-    v.type();       // CDType enum value
-    v.isInt();      // true if CD_INT
-    v.isFloat();    // true if CD_FLOAT
-    v.isBool();     // true if CD_BOOL
-    v.isString();   // true if CD_STRING or CD_ENUM
-
-    // Value extraction (cross-type conversion applies — see below)
-    v.asInt();      // long
-    v.asFloat();    // float
-    v.asBool();     // bool
-    v.asString();   // const char* — VALID ONLY DURING THIS CALLBACK
+    v.type();  v.isInt(); v.isFloat(); v.isBool(); v.isString();
+    v.asInt(); v.asFloat(); v.asBool(); v.asString();
 }
 ```
 
 Cross-type conversion rules:
-- `asInt()` from float → truncated toward zero; from bool → 0 or 1
-- `asFloat()` from int → exact promotion; from bool → 0.0 or 1.0
-- `asBool()` from int/float → `value != 0`; from string → `true` only if text is `"true"`
-- `asString()` from non-string types → returns `nullptr`
+- `asInt()` from float → truncated; from bool → 0/1
+- `asFloat()` from int → exact; from bool → 0.0/1.0
+- `asBool()` from int/float → `value != 0`; from string → `true` only if `"true"`
+- `asString()` from non-string → `nullptr`
 
-> **String lifetime warning:** `v.asString()` points into an internal buffer overwritten on the next inbound message. Copy it if you need it to persist:
-> ```cpp
-> char buf[32];
-> strncpy(buf, v.asString(), sizeof(buf) - 1);
-> ```
+> **String lifetime:** `v.asString()` points into an internal buffer overwritten on the next inbound
+> message. Copy it (`strncpy`) if you need it to persist.
 
 ---
 
-## Auto-Ack vs Manual Ack
+## Controls
 
-- **`CD_ACK_AUTO`** (default): library publishes the ack automatically after your callback returns, echoing the received value.
-- **`CD_ACK_MANUAL`**: library does not ack. You must call `cd.ackChange(name, actualValue)` — typically after reading back the hardware state.
+Control writes from the dashboard arrive on the device's Anedya value-store update channel as
+`{"<slot>": <value>}`. The library maps the slot back to your registered variable and invokes its
+`onChange` callback.
+
+- **`CD_ACK_AUTO`** (default): after your callback returns, the received value is reported back to the slot.
+- **`CD_ACK_MANUAL`**: you call `cd.ackChange(name, actualValue)` yourself — typically after reading the
+  hardware state back.
 
 ```cpp
-cd.onChange("relay", handleRelay, CD_ACK_MANUAL);
+cd.onChange("relay", handleRelay, CD_ACK_MANUAL, CD_BOOL, "float0");
 
 void handleRelay(const char* var, CDValue v) {
     digitalWrite(RELAY_PIN, v.asBool() ? HIGH : LOW);
-    bool actual = digitalRead(RELAY_PIN) == HIGH;
-    cd.ackChange("relay", actual);   // ack with real state
+    cd.ackChange("relay", digitalRead(RELAY_PIN) == HIGH);
 }
 ```
 
 ---
 
-## Heartbeat / `state/last_seen`
+## Liveness
 
-The library publishes an empty message to `<base>/state/last_seen` every `heartbeatInterval` seconds. The server records the timestamp. Disable with `cd.setHeartbeatInterval(0)`.
+Device online/offline status is derived from the MQTT session. `setHeartbeatInterval(seconds)` maps onto
+the MQTT keepalive so PubSubClient pings keep the session — and the dashboard's online indicator — alive.
 
 ---
 
 ## Reconnect & Backoff
 
-On disconnect, the library reconnects with exponential backoff: 1 s, 2 s, 4 s, 8 s, 16 s, 30 s, 30 s, … Reset to 1 s on success. `loop()` never blocks — no `delay()` calls inside.
+On disconnect the library reconnects with exponential backoff: 1 s, 2 s, 4 s, 8 s, 16 s, 30 s, … reset to
+1 s on success. `loop()` never blocks.
 
 ---
 
-## Debug Logging
+## TLS Notes
 
-Off by default. Enable with:
-```cpp
-cd.setDebug(&Serial);
-```
-Every log line is prefixed `[CD] `. Disable for production.
+Anedya MQTT requires TLS. The examples call `net.setInsecure()` for convenience, which skips certificate
+validation — fine for development. For production, pin the Anedya root CA with `net.setCACert(...)`.
 
 ---
 
 ## One Instance Per Sketch
 
-Only one `CircuitDigestCloud` instance is supported per sketch (v1.0.4). A second instance overwrites the internal MQTT callback pointer, breaking the first. The library uses your `MQTT_DEVICE_ID` as the MQTT client ID, so each device connects with a unique identity.
+Only one `CircuitDigestCloud` instance is supported per sketch. The library uses your Physical Device ID as the MQTT
+client id, so each device connects with a unique identity.
 
 ---
 
 ## Examples
 
-Five examples are included under `examples/`:
-
 | Sketch | What it shows |
 |---|---|
-| `01_SensorAndControl` | Publish a temperature sensor + control GPIO 2 from the dashboard — **start here** |
-| `02_BasicSensor` | Publish a single float sensor every 5 seconds, no controls |
+| `01_SensorAndControl` | Publish a temperature sensor + control a GPIO from the dashboard — **start here** |
+| `02_BasicSensor` | Publish a single float sensor every 5 seconds |
 | `03_BasicControl` | Receive a boolean control and drive `LED_BUILTIN`, auto-ack |
-| `04_AllVariableTypes` | All five types as sensors and controls in one sketch |
+| `04_AllVariableTypes` | All types as sensors and controls with their slots |
 | `05_ManualAckAndManyControls` | Manual ack with GPIO read-back, mixed ack modes, global fallback |
 
-All examples target **ESP32 and ESP8266**. Fill in your WiFi credentials and dashboard keys at the top of each sketch, then open Serial Monitor at 115200 baud to see `[CD]` debug output.
+All examples target **ESP32 and ESP8266**. Fill in WiFi credentials, your Physical Device ID / Connection Key, and the
+per-variable slots, then open Serial Monitor at 115200 baud for `[CD]` debug output.
 
 ---
 
 ## Acknowledgements
 
-This library builds on [PubSubClient](https://github.com/knolleary/pubsubclient) by **Nick O'Leary**, which handles the underlying MQTT 3.1.1 transport. PubSubClient is licensed under the MIT License.
+Builds on [PubSubClient](https://github.com/knolleary/pubsubclient) by **Nick O'Leary** (MIT).
 
----
 ## License
 
 MIT — Copyright (c) 2026 Jobit Joseph, Circuit Digest. See [LICENSE](LICENSE).

@@ -20,7 +20,7 @@ const char *WIFI_SSID = "your_ssid";
 const char *WIFI_PASS = "your_password";
 const char *DEVICE_ID = "your-device-id-here";          // Physical Device ID (device setup panel)
 const char *CONNECTION_KEY = "your-connection-key"; // Connection Key (device setup panel)
-const char *LIGHT_SLOT = "status0";                 // control variable slot
+const char *LIGHT_SLOT = "light-1";                 // control variable slot (boolean catalog key)
 // ---------------------------------------------------------------------------
 
 WiFiClientSecure net;

@@ -2,7 +2,8 @@
 // SPDX-License-Identifier: MIT
 // CircuitDigestCloud — Example 05: Manual Ack & Many Controls
 // relay_1 and relay_2 use CD_ACK_MANUAL — ack is sent with the actual GPIO
-// read-back. mode uses CD_ACK_AUTO. Global fallback handles any unknown controls.
+// read-back. fan uses CD_ACK_AUTO. Global fallback handles any unknown controls.
+// Slots are predefined catalog keys (boolean keys here) from the device setup panel.
 
 #if defined(ESP32)
 #include <WiFi.h>
@@ -44,11 +45,9 @@ void handleRelay2(const char *var, CDValue v) {
 }
 
 // CD_ACK_AUTO: library reports the value automatically after callback.
-void handleMode(const char *var, CDValue v) {
-  // v.asString() is only valid during this callback — copy if needed.
-  const char *s = v.asString();
-  Serial.print("mode → ");
-  Serial.println(s ? s : "(null)");
+void handleFan(const char *var, CDValue v) {
+  Serial.print("fan → ");
+  Serial.println(v.asBool() ? "ON" : "OFF");
 }
 
 // Global fallback — fires for any control not registered with onChange().
@@ -73,10 +72,10 @@ void setup() {
   cd.setCredentials(DEVICE_ID, CONNECTION_KEY);
   cd.setDebug(&Serial); // prints debug messages to Serial
 
-  // onChange(name, cb, ackMode, type, slot) — slots from the dashboard.
-  cd.onChange("relay_1", handleRelay1, CD_ACK_MANUAL, CD_BOOL, "float0");
-  cd.onChange("relay_2", handleRelay2, CD_ACK_MANUAL, CD_BOOL, "float1");
-  cd.onChange("mode", handleMode, CD_ACK_AUTO, CD_STRING, "status0");
+  // onChange(name, cb, ackMode, type, slot) — catalog keys from the dashboard.
+  cd.onChange("relay_1", handleRelay1, CD_ACK_MANUAL, CD_BOOL, "relay-1");
+  cd.onChange("relay_2", handleRelay2, CD_ACK_MANUAL, CD_BOOL, "relay-2");
+  cd.onChange("fan", handleFan, CD_ACK_AUTO, CD_BOOL, "fan-1");
 
   // Global fallback — one allowed; pass nullptr to clear.
   cd.onChange(handleUnknown);

@@ -125,7 +125,9 @@ want to publish straight to a slot like `cd.publishVariable("float0", v)`.
 | `CD_ENUM` | quoted string | `const char*` | status |
 | `CD_AUTO` | auto-detected on first use | — | — |
 
-> Geo (lat/long) variables are not supported in this release.
+> Geo (lat/long) variables are not supported in this release. String/enum (status-slot)
+> catalog keys are not exposed yet either — send color as a packed integer (see
+> `07_ColorPicker`) and use float/boolean keys for everything else.
 
 ### `CDValue` — inbound control payload
 
@@ -239,9 +241,10 @@ client id, so each device connects with a unique identity.
 | `01_SensorAndControl` | Publish a temperature sensor + control a GPIO from the dashboard — **start here** |
 | `02_BasicSensor` | Publish a single float sensor every 5 seconds |
 | `03_BasicControl` | Receive a boolean control and drive `LED_BUILTIN`, auto-ack |
-| `04_AllVariableTypes` | All types as sensors and controls with their slots |
+| `04_AllVariableTypes` | Float / int / bool sensors and controls with their catalog slots |
 | `05_ManualAckAndManyControls` | Manual ack with GPIO read-back, mixed ack modes, global fallback |
 | `06_SendImage` | Upload an image to the device over HTTPS with `sendImage` (ESP32-CAM notes inside) |
+| `07_ColorPicker` | Drive an RGB LED from the Color Picker widget — unpack the packed `0xRRGGBB` integer |
 
 All examples target **ESP32 and ESP8266**. Fill in WiFi credentials, your Physical Device ID / Connection Key, and the
 per-variable slots, then open Serial Monitor at 115200 baud for `[CD]` debug output.

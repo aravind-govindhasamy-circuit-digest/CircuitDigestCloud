@@ -31,6 +31,14 @@ const char *CONNECTION_KEY = "your-connection-key"; // Connection Key (device se
 WiFiClientSecure net;
 CircuitDigestCloud cd(net);
 
+// Re-apply TLS config after the library stops the transport between connects —
+// WiFiClientSecure loses setInsecure()/setCACert() on stop(), so without this the
+// next TLS handshake fails (PubSubClient state=-2).
+void resetTransport() {
+  net.stop();
+  net.setInsecure(); // dev only — pin the Anedya CA for production
+}
+
 float g_setpoint = 25.0f;
 bool g_relay = false;
 
@@ -56,6 +64,7 @@ void setup() {
   }
 
   net.setInsecure(); // dev only — pin the Anedya CA for production
+  cd.setTransportResetCallback(resetTransport); // re-apply TLS after transport stops
 
   cd.setCredentials(DEVICE_ID, CONNECTION_KEY);
   cd.setDebug(&Serial); // prints debug messages to Serial

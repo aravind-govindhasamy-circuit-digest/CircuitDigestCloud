@@ -26,6 +26,14 @@ const char *LIGHT_SLOT = "light-1";                 // control variable slot (bo
 WiFiClientSecure net;
 CircuitDigestCloud cd(net);
 
+// Re-apply TLS config after the library stops the transport between connects —
+// WiFiClientSecure loses setInsecure()/setCACert() on stop(), so without this the
+// next TLS handshake fails (PubSubClient state=-2).
+void resetTransport() {
+  net.stop();
+  net.setInsecure(); // dev only — pin the Anedya CA for production
+}
+
 // Control callback — v.asBool() / v.asInt() / v.asFloat() / v.asString() / v.type()
 void handleLight(const char *var, CDValue v) {
   digitalWrite(LED_BUILTIN, v.asBool() ? HIGH : LOW);
@@ -42,6 +50,7 @@ void setup() {
   }
 
   net.setInsecure(); // dev only — pin the Anedya CA for production
+  cd.setTransportResetCallback(resetTransport); // re-apply TLS after transport stops
 
   cd.setCredentials(DEVICE_ID, CONNECTION_KEY);
   cd.setDebug(&Serial); // prints debug messages to Serial

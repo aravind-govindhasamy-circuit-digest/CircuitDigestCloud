@@ -39,6 +39,14 @@ const char *COLOR_SLOT = "color-1";                  // Color Picker control slo
 WiFiClientSecure net;
 CircuitDigestCloud cd(net);
 
+// Re-apply TLS config after the library stops the transport between connects.
+// WiFiClientSecure loses setInsecure()/setCACert() on stop(), so without this the
+// next TLS handshake fails (PubSubClient state=-2). Required for reliable reconnect.
+void resetTransport() {
+  net.stop();
+  net.setInsecure(); // dev only — pin the Anedya CA for production
+}
+
 // Control callback — the Color Picker sends a packed 24-bit RGB integer.
 void handleColor(const char *var, CDValue v) {
   long c = v.asInt();           // 0xRRGGBB
@@ -66,6 +74,7 @@ void setup() {
   }
 
   net.setInsecure(); // dev only — pin the Anedya CA for production
+  cd.setTransportResetCallback(resetTransport); // re-apply TLS after transport stops
 
   cd.setCredentials(DEVICE_ID, CONNECTION_KEY);
   cd.setDebug(&Serial); // prints debug messages to Serial

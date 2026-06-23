@@ -27,6 +27,14 @@ WiFiClientSecure mqttNet;   // TLS transport for MQTT telemetry (port 8883)
 WiFiClientSecure httpsNet;  // SEPARATE TLS client, only for sendImage (port 443)
 CircuitDigestCloud cd(mqttNet);
 
+// Re-apply TLS config after the library stops the MQTT transport between connects —
+// WiFiClientSecure loses setInsecure()/setCACert() on stop(), so without this the
+// next TLS handshake fails (PubSubClient state=-2).
+void resetTransport() {
+  mqttNet.stop();
+  mqttNet.setInsecure();   // dev only — pin the Anedya CA in production
+}
+
 // A minimal valid 1x1 white JPEG, just so the example uploads something real.
 static const uint8_t SAMPLE_JPEG[] = {
     0xFF,0xD8,0xFF,0xE0,0x00,0x10,0x4A,0x46,0x49,0x46,0x00,0x01,0x01,0x00,0x00,0x01,
@@ -49,6 +57,7 @@ void setup() {
     Serial.println("\nWiFi connected");
 
     mqttNet.setInsecure();   // dev only — pin the Anedya CA in production
+    cd.setTransportResetCallback(resetTransport); // re-apply TLS after transport stops
 
     cd.setCredentials(DEVICE_ID, CONNECTION_KEY);
     cd.setApiKey(API_KEY);   // enables sendImage()

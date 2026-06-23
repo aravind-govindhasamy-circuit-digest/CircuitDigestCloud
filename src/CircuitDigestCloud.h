@@ -42,6 +42,12 @@ public:
     // Override broker host/port directly (takes priority over region).
     void setServer(const char* host, uint16_t port);
 
+    // CircuitDigest Cloud HTTP API — used by sendImage(). Host defaults to
+    // "www.circuitdigest.cloud":443. The API key is your dashboard API key
+    // (cd_live_…), which is DIFFERENT from the MQTT Connection Key.
+    void setApiHost(const char* host, uint16_t port = 443);
+    void setApiKey (const char* apiKey);
+
     void setBufferSize        (uint16_t bytes);
     void setHeartbeatInterval (uint32_t seconds);
     void setAutoAck           (bool enabled);
@@ -80,6 +86,16 @@ public:
     bool ackChange(const char* name, bool        value);
     bool ackChange(const char* name, const char* value);
 
+    // Upload a captured image (e.g. from an ESP32-CAM) to this device on CircuitDigest
+    // Cloud over HTTPS. Pass a SEPARATE TLS-capable client — do NOT reuse the MQTT
+    // transport; this call blocks until the upload finishes. Requires setApiKey(), and
+    // setCredentials() so the device id is known. The image is sent as-is (no copy).
+    //   contentType — image/jpeg | image/png | image/gif | image/webp  (≤ 5 MB)
+    // Returns true on an HTTP 2xx response; otherwise see lastError().
+    bool sendImage(Client& https, const uint8_t* data, size_t length,
+                   const char* contentType = "image/jpeg",
+                   const char* filename    = "capture.jpg");
+
 private:
     Client&      _transport;
     PubSubClient _pubsub;
@@ -89,6 +105,11 @@ private:
 
     char     _host[64];
     uint16_t _port;
+
+    // CircuitDigest Cloud HTTP API (sendImage). Separate from the MQTT broker above.
+    char        _apiHost[64];
+    uint16_t    _apiPort;
+    const char* _apiKey;
 
     char*    _topicBase;     // "$anedya/device/<deviceId>"
     uint16_t _topicBaseLen;
@@ -133,6 +154,8 @@ private:
     CDVariable* _findBySlot    (const char* slot, CDDirection dir);
     CDVariable* _registerVar   (const char* name, CDDirection dir, CDType type, const char* slot);
     const char* _slotOf        (CDVariable* v) const;
+
+    int  _readHttpStatus (Client& c);   // parse "HTTP/1.1 <code> …" → code, or -1
 
     bool _publishSubmit  (const char* slot, const char* valueToken, bool retain);
     bool _doPublishSensor(const char* name, CDType type, const char* valueToken, bool retain);

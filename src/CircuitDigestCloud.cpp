@@ -13,6 +13,10 @@
 static const uint16_t CD_MQTT_PORT_TLS = 8883;
 static const char     CD_TOPIC_PREFIX[] = "$anedya/device/";
 
+// Default CircuitDigest Cloud HTTP API host for image uploads (sendImage).
+static const char     CD_DEFAULT_API_HOST[] = "www.circuitdigest.cloud";
+static const uint16_t CD_DEFAULT_API_PORT   = 443;
+
 CircuitDigestCloud* CircuitDigestCloud::_instance = nullptr;
 
 // ---- Construction ----------------------------------------------------------
@@ -21,6 +25,7 @@ CircuitDigestCloud::CircuitDigestCloud(Client& transport)
     : _transport(transport), _pubsub(transport),
       _deviceId(nullptr), _connKey(nullptr),
       _port(CD_MQTT_PORT_TLS),
+      _apiPort(CD_DEFAULT_API_PORT), _apiKey(nullptr),
       _topicBase(nullptr), _topicBaseLen(0),
       _bufferSize(CD_DEFAULT_BUFFER_SIZE),
       _heartbeatInterval(CD_DEFAULT_HEARTBEAT_S),
@@ -32,6 +37,7 @@ CircuitDigestCloud::CircuitDigestCloud(Client& transport)
       _registryHead(nullptr), _globalControlCb(nullptr)
 {
     setRegion(CD_DEFAULT_REGION);
+    snprintf(_apiHost, sizeof(_apiHost), "%s", CD_DEFAULT_API_HOST);
     _instance = this;
 }
 
@@ -70,6 +76,16 @@ void CircuitDigestCloud::setServer(const char* host, uint16_t port) {
     }
     if (port) _port = port;
 }
+
+void CircuitDigestCloud::setApiHost(const char* host, uint16_t port) {
+    if (host && *host) {
+        strncpy(_apiHost, host, sizeof(_apiHost) - 1);
+        _apiHost[sizeof(_apiHost) - 1] = 0;
+    }
+    if (port) _apiPort = port;
+}
+
+void CircuitDigestCloud::setApiKey(const char* apiKey) { _apiKey = apiKey; }
 
 void CircuitDigestCloud::setBufferSize(uint16_t bytes) {
     _bufferSize = (bytes < 256) ? 256 : bytes;
@@ -479,6 +495,120 @@ void CircuitDigestCloud::_autoAckValue(CDVariable* v, CDValue& val) {
     }
     if (!n) return;
     _publishSubmit(_slotOf(v), _valueScratch, true);
+}
+
+// ---- Image upload (HTTPS) --------------------------------------------------
+
+bool CircuitDigestCloud::sendImage(Client& https, const uint8_t* data, size_t length,
+                                   const char* contentType, const char* filename) {
+    _lastError = CD_OK;
+    if (!_deviceId) {
+        _lastError = CD_ERR_BAD_CREDENTIALS;
+        _logf("[CD] sendImage: call setCredentials() first");
+        return false;
+    }
+    if (!_apiKey || !*_apiKey) {
+        _lastError = CD_ERR_NO_API_KEY;
+        _logf("[CD] sendImage: call setApiKey() first");
+        return false;
+    }
+    if (!data || length == 0) {
+        _lastError = CD_ERR_BAD_ARGUMENT;
+        _logf("[CD] sendImage: empty image");
+        return false;
+    }
+    if (!contentType || !*contentType) contentType = "image/jpeg";
+    if (!filename    || !*filename)    filename    = "capture.jpg";
+
+    // multipart/form-data: one "image" file part. Body = head + raw bytes + tail.
+    static const char BOUNDARY[] = "----CircuitDigestCloudImageBoundary";
+    char head[224];
+    int headLen = snprintf(head, sizeof(head),
+        "--%s\r\n"
+        "Content-Disposition: form-data; name=\"image\"; filename=\"%s\"\r\n"
+        "Content-Type: %s\r\n\r\n",
+        BOUNDARY, filename, contentType);
+    char tail[48];
+    int tailLen = snprintf(tail, sizeof(tail), "\r\n--%s--\r\n", BOUNDARY);
+    if (headLen <= 0 || headLen >= (int)sizeof(head) || tailLen <= 0) {
+        _lastError = CD_ERR_BAD_ARGUMENT;
+        _logf("[CD] sendImage: header too long");
+        return false;
+    }
+
+    size_t contentLength = (size_t)headLen + length + (size_t)tailLen;
+
+    if (!https.connect(_apiHost, _apiPort)) {
+        _lastError = CD_ERR_HTTP_CONNECT;
+        _logf("[CD] sendImage: connect %s:%u failed", _apiHost, _apiPort);
+        return false;
+    }
+
+    // Request line + headers. deviceId may be a UUID or mqtt_u_<uuid>; the server
+    // resolves both. The dashboard API key goes in the Authorization header.
+    char line[160];
+    https.print("POST /api/v1/devices/");
+    https.print(_deviceId);
+    https.print("/image HTTP/1.1\r\n");
+    snprintf(line, sizeof(line), "Host: %s\r\n", _apiHost);                 https.print(line);
+    https.print("Authorization: "); https.print(_apiKey); https.print("\r\n");
+    snprintf(line, sizeof(line),
+             "Content-Type: multipart/form-data; boundary=%s\r\n", BOUNDARY); https.print(line);
+    snprintf(line, sizeof(line),
+             "Content-Length: %lu\r\n", (unsigned long)contentLength);        https.print(line);
+    https.print("Connection: close\r\n\r\n");
+
+    https.write((const uint8_t*)head, (size_t)headLen);
+
+    // Stream the image in chunks so we never need a second copy in RAM.
+    const size_t CHUNK = 1024;
+    size_t sent = 0;
+    while (sent < length) {
+        size_t want  = (length - sent < CHUNK) ? (length - sent) : CHUNK;
+        size_t wrote = https.write(data + sent, want);
+        if (wrote == 0) {
+            https.stop();
+            _lastError = CD_ERR_PUBLISH_FAILED;
+            _logf("[CD] sendImage: write stalled at %u/%u", (unsigned)sent, (unsigned)length);
+            return false;
+        }
+        sent += wrote;
+    }
+    https.write((const uint8_t*)tail, (size_t)tailLen);
+    https.flush();
+
+    int status = _readHttpStatus(https);
+    https.stop();
+
+    if (status >= 200 && status < 300) {
+        _logf("[CD] sendImage: OK (HTTP %d, %u bytes)", status, (unsigned)length);
+        return true;
+    }
+    _lastError = CD_ERR_HTTP_STATUS;
+    _logf("[CD] sendImage: HTTP %d", status);
+    return false;
+}
+
+int CircuitDigestCloud::_readHttpStatus(Client& c) {
+    // Read only the status line "HTTP/1.1 <code> <reason>" and return <code>, or -1.
+    char buf[48];
+    size_t i = 0;
+    uint32_t start = millis();
+    bool sawData = false;
+    while (millis() - start < 10000) {
+        int ch = c.read();
+        if (ch < 0) {
+            if (sawData && !c.connected() && !c.available()) break;
+            delay(2);
+            continue;
+        }
+        sawData = true;
+        if (ch == '\n') break;
+        if (ch != '\r' && i < sizeof(buf) - 1) buf[i++] = (char)ch;
+    }
+    buf[i] = 0;
+    const char* sp = strchr(buf, ' ');
+    return sp ? atoi(sp + 1) : -1;
 }
 
 // ---- Debug -----------------------------------------------------------------

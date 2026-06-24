@@ -26,6 +26,8 @@ const char *TEMPERATURE_SLOT = "temperature-1"; // sensor variable  — directio
 const char *GPIO_SLOT         = "light-1";        // control variable — direction: output, type: boolean
                                                   // Dashboard: Add Variable (key "light-1", boolean, output)
                                                   //            Add Widget   → Toggle or Switch, metric_key "light-1"
+const char *ONLINE_SLOT       = "online-1";       // boolean sensor — publishes true on connect, false on drop
+                                                  // Dashboard: Add Variable (key "online-1", boolean, input)
 // ---------------------------------------------------------------------------
 
 #define GPIO_PIN 2
@@ -74,6 +76,7 @@ void setup() {
   // value back so the dashboard widget confirms (and the slider/toggle stops blinking).
   cd.onChange("gpio", handleGpio, CD_ACK_AUTO, CD_BOOL, GPIO_SLOT);
 
+  cd.setOnlineStatusSlot(ONLINE_SLOT); // publishes true/false to "online-1" on connect/drop
   cd.begin(); // validates credentials; connection starts on first loop()
 }
 

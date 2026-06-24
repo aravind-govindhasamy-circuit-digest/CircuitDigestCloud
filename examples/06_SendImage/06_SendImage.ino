@@ -21,6 +21,7 @@ const char* WIFI_PASS = "your-password";
 const char* DEVICE_ID       = "your-physical-device-id";   // from the device setup panel
 const char* CONNECTION_KEY  = "your-connection-key";        // MQTT password
 const char* API_KEY         = "cd_live_xxxxxxxxxxxxxxxx";   // dashboard API key (for uploads)
+const char* ONLINE_SLOT     = "online-1";                   // boolean sensor — true on connect, false on drop
 // ────────────────────────────────────────────────────────────────────────────
 
 WiFiClientSecure mqttNet;   // TLS transport for MQTT telemetry (port 8883)
@@ -62,6 +63,7 @@ void setup() {
     cd.setCredentials(DEVICE_ID, CONNECTION_KEY);
     cd.setApiKey(API_KEY);   // enables sendImage()
     cd.setDebug(&Serial);
+    cd.setOnlineStatusSlot(ONLINE_SLOT);
     cd.begin();
 }
 

@@ -31,7 +31,7 @@ CircuitDigestCloud::CircuitDigestCloud(Client& transport)
       _heartbeatInterval(CD_DEFAULT_HEARTBEAT_S),
       _autoAck(true), _initialized(false), _reqSeq(0),
       _debug(nullptr), _lastError(CD_OK),
-      _transportReset(nullptr),
+      _transportReset(nullptr), _onlineSlot(nullptr),
       _state(CD_STATE_DISCONNECTED),
       _backoffNextMs(0), _backoffSeconds(1),
       _registryHead(nullptr), _globalControlCb(nullptr)
@@ -101,6 +101,10 @@ void CircuitDigestCloud::setDebug(Stream* stream) { _debug = stream; }
 
 void CircuitDigestCloud::setTransportResetCallback(CDTransportResetCallback cb) {
     _transportReset = cb;
+}
+
+void CircuitDigestCloud::setOnlineStatusSlot(const char* slot) {
+    _onlineSlot = slot;
 }
 
 void CircuitDigestCloud::_resetTransport() {
@@ -181,6 +185,11 @@ bool CircuitDigestCloud::connected()    { return _state == CD_STATE_CONNECTED &&
 bool CircuitDigestCloud::isConnecting() { return _state == CD_STATE_CONNECTING || _state == CD_STATE_BACKOFF; }
 
 void CircuitDigestCloud::disconnect() {
+    if (_onlineSlot && _pubsub.connected() && _topicBase) {
+        cdValueBool(_valueScratch, sizeof(_valueScratch), false);
+        _publishSubmit(_onlineSlot, _valueScratch, true);
+        _logf("[CD] online status → false (%s)", _onlineSlot);
+    }
     if (_pubsub.connected()) _pubsub.disconnect();
     _resetTransport();
     _state = CD_STATE_DISCONNECTED;
@@ -200,7 +209,19 @@ bool CircuitDigestCloud::_attemptConnect() {
     delay(250);
     // Anedya: MQTT client id = username = deviceId, password = connectionKey.
     _logf("[CD] connecting to %s:%u as %s ...", _host, _port, _deviceId);
-    bool ok = _pubsub.connect(_deviceId, _deviceId, _connKey);
+    bool ok;
+    if (_onlineSlot && _topicBase) {
+        // Build LWT topic + payload: broker fires this automatically on unexpected drop.
+        char lwtTopic[CD_TOPIC_BUFFER_SIZE];
+        char lwtMsg[128];
+        snprintf(lwtTopic, sizeof(lwtTopic), "%s/submitdata/json", _topicBase);
+        snprintf(lwtMsg, sizeof(lwtMsg),
+            "{\"reqID\":\"0\",\"data\":[{\"variable\":\"%s\",\"value\":false,\"timestamp\":0}]}",
+            _onlineSlot);
+        ok = _pubsub.connect(_deviceId, _deviceId, _connKey, lwtTopic, 1, true, lwtMsg);
+    } else {
+        ok = _pubsub.connect(_deviceId, _deviceId, _connKey);
+    }
     if (ok) {
         _state = CD_STATE_CONNECTED;
         _onConnected();
@@ -225,6 +246,12 @@ void CircuitDigestCloud::_onConnected() {
     _pubsub.subscribe(_topicScratch, 1);
     snprintf(_topicScratch, sizeof(_topicScratch), "%s/response", _topicBase);
     _pubsub.subscribe(_topicScratch, 1);
+
+    if (_onlineSlot) {
+        cdValueBool(_valueScratch, sizeof(_valueScratch), true);
+        _publishSubmit(_onlineSlot, _valueScratch, true);
+        _logf("[CD] online status → true (%s)", _onlineSlot);
+    }
 
     _backoffSeconds = 1;
 }

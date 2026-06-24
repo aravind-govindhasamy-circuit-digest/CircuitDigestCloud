@@ -54,6 +54,13 @@ public:
     void setDebug             (Stream* stream);
     void setTransportResetCallback(CDTransportResetCallback cb);
 
+    // Publish online/offline presence to a boolean dashboard slot.
+    // On connect : publishes true  to the slot.
+    // On disconnect (clean): publishes false before closing the session.
+    // On unexpected drop : the MQTT broker fires the LWT (false) automatically.
+    // Call before begin(). Slot must be a boolean-type variable on the dashboard.
+    void setOnlineStatusSlot(const char* slot);
+
     bool begin();
     void loop();
 
@@ -123,6 +130,7 @@ private:
     Stream*  _debug;
     CDError  _lastError;
     CDTransportResetCallback _transportReset;
+    const char* _onlineSlot;   // slot for online/offline LWT presence (nullptr = disabled)
 
     enum State : uint8_t {
         CD_STATE_DISCONNECTED,

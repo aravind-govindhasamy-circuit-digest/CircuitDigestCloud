@@ -22,6 +22,7 @@ const char *DEVICE_ID = "your-device-id-here";          // Physical Device ID (d
 const char *CONNECTION_KEY = "your-connection-key"; // Connection Key (device setup panel)
 // Slot for each variable is shown next to it on the dashboard (a catalog key, e.g. "temperature-1").
 const char *TEMPERATURE_SLOT = "temperature-1";
+const char *ONLINE_SLOT      = "online-1"; // boolean sensor — true on connect, false on drop
 // ---------------------------------------------------------------------------
 
 // Anedya MQTT requires TLS (port 8883) — use a secure client.
@@ -59,6 +60,7 @@ void setup() {
   // Types: CD_AUTO | CD_INT | CD_FLOAT | CD_BOOL | CD_STRING | CD_ENUM
   cd.registerVariable("temperature", CD_FLOAT, TEMPERATURE_SLOT);
 
+  cd.setOnlineStatusSlot(ONLINE_SLOT); // publishes true/false to "online-1" on connect/drop
   cd.begin(); // validates credentials; connection starts on first loop()
 }
 

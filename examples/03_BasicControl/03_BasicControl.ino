@@ -20,7 +20,8 @@ const char *WIFI_SSID = "your_ssid";
 const char *WIFI_PASS = "your_password";
 const char *DEVICE_ID = "your-device-id-here";          // Physical Device ID (device setup panel)
 const char *CONNECTION_KEY = "your-connection-key"; // Connection Key (device setup panel)
-const char *LIGHT_SLOT = "light-1";                 // control variable slot (boolean catalog key)
+const char *LIGHT_SLOT  = "light-1";  // control variable slot (boolean catalog key)
+const char *ONLINE_SLOT = "online-1"; // boolean sensor — true on connect, false on drop
 // ---------------------------------------------------------------------------
 
 WiFiClientSecure net;
@@ -58,6 +59,7 @@ void setup() {
   // onChange(name, cb, ackMode, type, slot)
   cd.onChange("light_1", handleLight, CD_ACK_AUTO, CD_BOOL, LIGHT_SLOT);
 
+  cd.setOnlineStatusSlot(ONLINE_SLOT);
   cd.begin();
 }
 

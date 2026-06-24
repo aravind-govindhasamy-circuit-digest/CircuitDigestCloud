@@ -22,6 +22,7 @@ const char *WIFI_SSID = "your_ssid";
 const char *WIFI_PASS = "your_password";
 const char *DEVICE_ID = "your-device-id-here";          // Physical Device ID (device setup panel)
 const char *CONNECTION_KEY = "your-connection-key"; // Connection Key (device setup panel)
+const char *ONLINE_SLOT    = "online-1";            // boolean sensor — true on connect, false on drop
 // ---------------------------------------------------------------------------
 
 #define RELAY1_PIN 26
@@ -89,6 +90,7 @@ void setup() {
   // Global fallback — one allowed; pass nullptr to clear.
   cd.onChange(handleUnknown);
 
+  cd.setOnlineStatusSlot(ONLINE_SLOT);
   cd.begin();
 }
 

@@ -26,7 +26,8 @@ const char *WIFI_SSID = "your_ssid";
 const char *WIFI_PASS = "your_password";
 const char *DEVICE_ID = "your-device-id-here";       // Physical Device ID (device setup panel)
 const char *CONNECTION_KEY = "your-connection-key";  // Connection Key (device setup panel)
-const char *COLOR_SLOT = "color-1";                  // Color Picker control slot (color-1 … color-10)
+const char *COLOR_SLOT  = "color-1";  // Color Picker control slot (color-1 … color-10)
+const char *ONLINE_SLOT = "online-1"; // boolean sensor — true on connect, false on drop
 // ---------------------------------------------------------------------------
 
 // Common-anode/-cathode RGB LED pins (PWM-capable). Adjust to your wiring.
@@ -82,6 +83,7 @@ void setup() {
   // onChange(name, cb, ackMode, type, slot) — CD_INT on a float slot.
   cd.onChange("color", handleColor, CD_ACK_AUTO, CD_INT, COLOR_SLOT);
 
+  cd.setOnlineStatusSlot(ONLINE_SLOT);
   cd.begin();
 }
 

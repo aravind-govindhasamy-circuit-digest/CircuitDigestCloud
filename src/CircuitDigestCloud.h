@@ -49,6 +49,10 @@ public:
     void setApiKey (const char* apiKey);
 
     void setBufferSize        (uint16_t bytes);
+    // Cadence (seconds) for the automatic Anedya heartbeat published while connected,
+    // and the MQTT keepalive. Default 60s. Pass 0 to disable the auto heartbeat (the
+    // MQTT keepalive is then left at the PubSubClient default). Anedya counts heartbeats
+    // per 5s window, so the effective floor is 5s. See also heartbeat().
     void setHeartbeatInterval (uint32_t seconds);
     void setAutoAck           (bool enabled);
     void setDebug             (Stream* stream);
@@ -103,6 +107,16 @@ public:
                    const char* contentType = "image/jpeg",
                    const char* filename    = "capture.jpg");
 
+    // Send one Anedya heartbeat (a dataless "I'm alive" signal, distinct from the MQTT
+    // keepalive ping). A heartbeat is also sent automatically on connect and every
+    // setHeartbeatInterval() seconds; call this for an extra on-demand beat.
+    //   heartbeat()        — publish over the existing MQTT connection (cheap; use this).
+    //   heartbeat(https)   — one-shot blocking HTTP POST /v1/heartbeat via a SEPARATE
+    //                        TLS-capable client, for sketches that don't run the MQTT loop.
+    // Returns true on success; otherwise see lastError().
+    bool heartbeat();
+    bool heartbeat(Client& https);
+
 private:
     Client&      _transport;
     PubSubClient _pubsub;
@@ -112,6 +126,7 @@ private:
 
     char     _host[64];
     uint16_t _port;
+    char     _region[24];    // retained so heartbeat(https) can derive device.<region>.anedya.io
 
     // CircuitDigest Cloud HTTP API (sendImage). Separate from the MQTT broker above.
     char        _apiHost[64];
@@ -122,7 +137,8 @@ private:
     uint16_t _topicBaseLen;
 
     uint16_t _bufferSize;
-    uint32_t _heartbeatInterval;   // maps to the MQTT keepalive interval (seconds)
+    uint32_t _heartbeatInterval;   // Anedya heartbeat cadence + MQTT keepalive (seconds; 0 = off)
+    uint32_t _lastHeartbeatMs;     // millis() of the last auto/connect heartbeat
     bool     _autoAck;
     bool     _initialized;
     uint32_t _reqSeq;
@@ -166,6 +182,7 @@ private:
     int  _readHttpStatus (Client& c);   // parse "HTTP/1.1 <code> …" → code, or -1
 
     bool _publishSubmit  (const char* slot, const char* valueToken, bool retain);
+    bool _publishHeartbeat();   // publish "{}" to <base>/heartbeat/json over MQTT
     bool _doPublishSensor(const char* name, CDType type, const char* valueToken, bool retain);
     void _autoAckValue   (CDVariable* v, CDValue& val);
     void _resetTransport();

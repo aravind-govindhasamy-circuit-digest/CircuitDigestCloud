@@ -26,7 +26,6 @@ const char *WIFI_SSID = "your_ssid";
 const char *WIFI_PASS = "your_password";
 const char *DEVICE_ID = "your-device-id-here";          // Physical Device ID (device setup panel)
 const char *CONNECTION_KEY = "your-connection-key"; // Connection Key (device setup panel)
-const char *ONLINE_SLOT    = "online-1";            // boolean sensor — true on connect, false on drop
 // ---------------------------------------------------------------------------
 
 WiFiClientSecure net;
@@ -79,7 +78,8 @@ void setup() {
   cd.onChange("setpoint", handleSetpoint, CD_ACK_AUTO, CD_FLOAT, "setpoint-1");
   cd.onChange("relay", handleRelay, CD_ACK_AUTO, CD_BOOL, "relay-1");
 
-  cd.setOnlineStatusSlot(ONLINE_SLOT);
+  // Heartbeat is automatic — pings Anedya every 60s to stay shown "online".
+  // cd.setHeartbeatInterval(30);   // optional: change cadence (5s floor; 0 disables). See example 08.
   cd.begin();
 }
 

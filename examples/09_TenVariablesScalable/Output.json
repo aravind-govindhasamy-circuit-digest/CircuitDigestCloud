@@ -1,0 +1,2150 @@
+��..................... connected
+[CD] begin: host=mqtt.ap-in-1.anedya.io:8883 base=$anedya/device/3dadccf3-9fc3-4ad6-895f-b829bcf31a92
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] subscribed $anedya/device/3dadccf3-9fc3-4ad6-895f-b829bcf31a92/valuestore/updates/json
+[CD] heartbeat [ok]
+[CD] connected
+[CD] submit temperature-1=799.47 [ok]
+[CD] submit humidity-1=757.49 [ok]
+[CD] submit pressure-1=484.91 [ok]
+[CD] submit voltage-1=97.15 [ok]
+[CD] submit current-1=302.82 [ok]
+[CD] submit power-1=264.01 [ok]
+[CD] submit analog-input-1=631 [ok]
+[CD] submit analog-input-2=797 [ok]
+[CD] submit count-1=99 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"reqid_zi2efKZTjUaYtCnyXz5pDD5w","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"2","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"3","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"4","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"5","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"6","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"7","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"8","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"9","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"10","success":true,"error":"","errorcode":0}
+[CD] connection lost → DISCONNECTED
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] TLS handshake failed; transport reset before retry
+[CD] connect failed (state=-2)
+[CD] backoff 1s
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] TLS handshake failed; transport reset before retry
+[CD] connect failed (state=-2)
+[CD] backoff 2s
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] TLS handshake failed; transport reset before retry
+[CD] connect failed (state=-2)
+[CD] backoff 4s
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] TLS handshake failed; transport reset before retry
+[CD] connect failed (state=-2)
+[CD] backoff 8s
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] TLS handshake failed; transport reset before retry
+[CD] connect failed (state=-2)
+[CD] backoff 16s
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] TLS handshake failed; transport reset before retry
+[CD] connect failed (state=-2)
+[CD] backoff 30s
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] TLS handshake failed; transport reset before retry
+[CD] connect failed (state=-2)
+[CD] backoff 30s
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] TLS handshake failed; transport reset before retry
+[CD] connect failed (state=-2)
+[CD] backoff 30s
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] TLS handshake failed; transport reset before retry
+[CD] connect failed (state=-2)
+[CD] backoff 30s
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x9 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x116c
+load:0x403c8700,len:0xc2c
+load:0x403cb700,len:0x3108
+entry 0x403c88b8
+Connecting to WiFi....... connected
+[CD] begin: host=mqtt.ap-in-1.anedya.io:8883 base=$anedya/device/3dadccf3-9fc3-4ad6-895f-b829bcf31a92
+[CD] connecting to mqtt.ap-in-1.anedya.io:8883 as 3dadccf3-9fc3-4ad6-895f-b829bcf31a92 ...
+[CD] subscribed $anedya/device/3dadccf3-9fc3-4ad6-895f-b829bcf31a92/valuestore/updates/json
+[CD] heartbeat [ok]
+[CD] connected
+[CD] response: {"reqId":"reqid_aSsdbETIvUHC80JVD1tA8WRU","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=982.71 [ok]
+[CD] submit humidity-1=398.4 [ok]
+[CD] submit pressure-1=134.55 [ok]
+[CD] submit voltage-1=389.76 [ok]
+[CD] submit current-1=0.09 [ok]
+[CD] submit power-1=337.9 [ok]
+[CD] submit analog-input-1=603 [ok]
+[CD] submit analog-input-2=201 [ok]
+[CD] submit count-1=883 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"2","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"3","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"4","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"5","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"6","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"7","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"8","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"9","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"10","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=765.34 [ok]
+[CD] submit humidity-1=530.77 [ok]
+[CD] submit pressure-1=391.54 [ok]
+[CD] submit voltage-1=44.34 [ok]
+[CD] submit current-1=93.85 [ok]
+[CD] submit power-1=490.01 [ok]
+[CD] submit analog-input-1=445 [ok]
+[CD] submit analog-input-2=944 [ok]
+[CD] submit count-1=32 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"11","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"12","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"13","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"14","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"15","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"16","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"17","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"18","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"19","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"20","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=769.75 [ok]
+[CD] submit humidity-1=668.72 [ok]
+[CD] submit pressure-1=356.56 [ok]
+[CD] submit voltage-1=39.1 [ok]
+[CD] submit current-1=193.3 [ok]
+[CD] submit power-1=107.73 [ok]
+[CD] submit analog-input-1=231 [ok]
+[CD] submit analog-input-2=778 [ok]
+[CD] submit count-1=842 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"21","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"22","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"23","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"24","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"25","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"26","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"27","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"28","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"29","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"30","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=204.64 [ok]
+[CD] submit humidity-1=98.69 [ok]
+[CD] submit pressure-1=50.75 [ok]
+[CD] submit voltage-1=625.63 [ok]
+[CD] submit current-1=902.78 [ok]
+[CD] submit power-1=946.6 [ok]
+[CD] submit analog-input-1=135 [ok]
+[CD] submit analog-input-2=71 [ok]
+[CD] submit count-1=438 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"31","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"32","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"33","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"34","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"35","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"36","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"37","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"38","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"39","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"40","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=482.17 [ok]
+[CD] submit humidity-1=985.82 [ok]
+[CD] submit pressure-1=633.28 [ok]
+[CD] submit voltage-1=232.48 [ok]
+[CD] submit current-1=187.84 [ok]
+[CD] submit power-1=99.97 [ok]
+[CD] submit analog-input-1=213 [ok]
+[CD] submit analog-input-2=345 [ok]
+[CD] submit count-1=844 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"41","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"42","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"43","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"44","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"45","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"46","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"47","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"48","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"49","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"50","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=572.67 [ok]
+[CD] submit humidity-1=855.26 [ok]
+[CD] submit pressure-1=181.29 [ok]
+[CD] submit voltage-1=274.95 [ok]
+[CD] submit current-1=151.63 [ok]
+[CD] submit power-1=12.73 [ok]
+[CD] submit analog-input-1=224 [ok]
+[CD] submit analog-input-2=169 [ok]
+[CD] submit count-1=381 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"51","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"52","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"53","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"54","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"55","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"56","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"57","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"58","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"59","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"60","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=88.23 [ok]
+[CD] submit humidity-1=621.7 [ok]
+[CD] submit pressure-1=427.57 [ok]
+[CD] submit voltage-1=204.38 [ok]
+[CD] submit current-1=299.89 [ok]
+[CD] submit power-1=819.05 [ok]
+[CD] submit analog-input-1=560 [ok]
+[CD] submit analog-input-2=170 [ok]
+[CD] submit count-1=410 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"61","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"62","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"63","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"64","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"65","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"66","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"67","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"68","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"69","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"70","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=775.63 [ok]
+[CD] submit humidity-1=120.69 [ok]
+[CD] submit pressure-1=616.64 [ok]
+[CD] submit voltage-1=171.03 [ok]
+[CD] submit current-1=800.45 [ok]
+[CD] submit power-1=217.51 [ok]
+[CD] submit analog-input-1=111 [ok]
+[CD] submit analog-input-2=440 [ok]
+[CD] submit count-1=528 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"71","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"72","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"73","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"74","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"75","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"76","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"77","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"78","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"79","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"80","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=622 [ok]
+[CD] submit humidity-1=794.96 [ok]
+[CD] submit pressure-1=898.37 [ok]
+[CD] submit voltage-1=338.26 [ok]
+[CD] submit current-1=21.49 [ok]
+[CD] submit power-1=305.5 [ok]
+[CD] submit analog-input-1=560 [ok]
+[CD] submit analog-input-2=197 [ok]
+[CD] submit count-1=798 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"81","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"82","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"83","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"84","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"85","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"86","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"87","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"88","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"89","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"90","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=887.63 [ok]
+[CD] submit humidity-1=234.77 [ok]
+[CD] submit pressure-1=830.67 [ok]
+[CD] submit voltage-1=954.42 [ok]
+[CD] submit current-1=937.61 [ok]
+[CD] submit power-1=902.98 [ok]
+[CD] submit analog-input-1=396 [ok]
+[CD] submit analog-input-2=921 [ok]
+[CD] submit count-1=487 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"91","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"92","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"93","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"94","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"95","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"96","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"97","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"98","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"99","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"100","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=751.78 [ok]
+[CD] submit humidity-1=356.53 [ok]
+[CD] submit pressure-1=187.19 [ok]
+[CD] submit voltage-1=331.48 [ok]
+[CD] submit current-1=608.74 [ok]
+[CD] submit power-1=641.85 [ok]
+[CD] submit analog-input-1=328 [ok]
+[CD] submit analog-input-2=465 [ok]
+[CD] submit count-1=932 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"101","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"102","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"103","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"104","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"105","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"106","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"107","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"108","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"109","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"110","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=333.98 [ok]
+[CD] submit humidity-1=856.91 [ok]
+[CD] submit pressure-1=135.53 [ok]
+[CD] submit voltage-1=874.8 [ok]
+[CD] submit current-1=351.48 [ok]
+[CD] submit power-1=977.35 [ok]
+[CD] submit analog-input-1=432 [ok]
+[CD] submit analog-input-2=887 [ok]
+[CD] submit count-1=38 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"111","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"112","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"113","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"114","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"115","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"116","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"117","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"118","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"119","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"120","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_IjSYArgavizNOBFv1phfXtCS","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=131.27 [ok]
+[CD] submit humidity-1=449.73 [ok]
+[CD] submit pressure-1=170.62 [ok]
+[CD] submit voltage-1=331.35 [ok]
+[CD] submit current-1=901.06 [ok]
+[CD] submit power-1=849.32 [ok]
+[CD] submit analog-input-1=942 [ok]
+[CD] submit analog-input-2=279 [ok]
+[CD] submit count-1=714 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"121","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"122","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"123","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"124","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"125","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"126","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"127","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"128","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"129","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"130","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=79.1 [ok]
+[CD] submit humidity-1=19.28 [ok]
+[CD] submit pressure-1=127.27 [ok]
+[CD] submit voltage-1=469.14 [ok]
+[CD] submit current-1=754.06 [ok]
+[CD] submit power-1=367.1 [ok]
+[CD] submit analog-input-1=538 [ok]
+[CD] submit analog-input-2=245 [ok]
+[CD] submit count-1=714 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"131","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"132","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"133","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"134","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"135","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"136","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"137","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"138","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"139","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"140","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=646.06 [ok]
+[CD] submit humidity-1=147.14 [ok]
+[CD] submit pressure-1=831.7 [ok]
+[CD] submit voltage-1=237.37 [ok]
+[CD] submit current-1=16.3 [ok]
+[CD] submit power-1=856.05 [ok]
+[CD] submit analog-input-1=437 [ok]
+[CD] submit analog-input-2=317 [ok]
+[CD] submit count-1=740 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"141","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"142","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"143","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"144","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"145","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"146","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"147","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"148","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"149","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"150","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=449.11 [ok]
+[CD] submit humidity-1=957.94 [ok]
+[CD] submit pressure-1=119.93 [ok]
+[CD] submit voltage-1=700.8 [ok]
+[CD] submit current-1=682.42 [ok]
+[CD] submit power-1=411.89 [ok]
+[CD] submit analog-input-1=815 [ok]
+[CD] submit analog-input-2=138 [ok]
+[CD] submit count-1=180 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"151","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"152","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"153","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"154","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"155","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"156","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"157","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"158","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"159","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"160","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=668.67 [ok]
+[CD] submit humidity-1=994.89 [ok]
+[CD] submit pressure-1=863.17 [ok]
+[CD] submit voltage-1=743.42 [ok]
+[CD] submit current-1=218.5 [ok]
+[CD] submit power-1=186.2 [ok]
+[CD] submit analog-input-1=587 [ok]
+[CD] submit analog-input-2=455 [ok]
+[CD] submit count-1=347 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"161","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"162","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"163","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"164","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"165","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"166","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"167","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"168","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"169","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"170","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=488.84 [ok]
+[CD] submit humidity-1=624.17 [ok]
+[CD] submit pressure-1=472.19 [ok]
+[CD] submit voltage-1=764.36 [ok]
+[CD] submit current-1=937.21 [ok]
+[CD] submit power-1=308.6 [ok]
+[CD] submit analog-input-1=377 [ok]
+[CD] submit analog-input-2=354 [ok]
+[CD] submit count-1=87 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"171","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"172","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"173","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"174","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"175","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"176","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"177","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"178","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"179","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"180","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=874.46 [ok]
+[CD] submit humidity-1=982.39 [ok]
+[CD] submit pressure-1=657.95 [ok]
+[CD] submit voltage-1=857.9 [ok]
+[CD] submit current-1=903.95 [ok]
+[CD] submit power-1=464.24 [ok]
+[CD] submit analog-input-1=496 [ok]
+[CD] submit analog-input-2=365 [ok]
+[CD] submit count-1=154 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"181","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"182","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"183","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"184","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"185","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"186","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"187","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"188","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"189","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=777.61 [ok]
+[CD] submit humidity-1=960.31 [ok]
+[CD] submit pressure-1=944.3 [ok]
+[CD] submit voltage-1=490.16 [ok]
+[CD] submit current-1=614.43 [ok]
+[CD] submit power-1=410.04 [ok]
+[CD] submit analog-input-1=549 [ok]
+[CD] submit analog-input-2=399 [ok]
+[CD] submit count-1=362 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"191","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"192","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"193","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"194","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"195","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=263.36 [ok]
+[CD] submit humidity-1=758.08 [ok]
+[CD] submit pressure-1=719.26 [ok]
+[CD] submit voltage-1=406.81 [ok]
+[CD] submit current-1=44.87 [ok]
+[CD] submit power-1=931.96 [ok]
+[CD] submit analog-input-1=863 [ok]
+[CD] submit analog-input-2=799 [ok]
+[CD] submit count-1=303 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"201","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"202","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"203","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"204","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"205","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=603.33 [ok]
+[CD] submit humidity-1=151.39 [ok]
+[CD] submit pressure-1=339.87 [ok]
+[CD] submit voltage-1=12.55 [ok]
+[CD] submit current-1=483.36 [ok]
+[CD] submit power-1=308.8 [ok]
+[CD] submit analog-input-1=989 [ok]
+[CD] submit analog-input-2=57 [ok]
+[CD] submit count-1=501 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"211","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"212","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"213","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"214","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"215","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=591.29 [ok]
+[CD] submit humidity-1=362.86 [ok]
+[CD] submit pressure-1=105.17 [ok]
+[CD] submit voltage-1=157.26 [ok]
+[CD] submit current-1=554.41 [ok]
+[CD] submit power-1=929.32 [ok]
+[CD] submit analog-input-1=414 [ok]
+[CD] submit analog-input-2=743 [ok]
+[CD] submit count-1=898 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"221","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"222","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"223","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"224","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"225","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=291.78 [ok]
+[CD] submit humidity-1=546.57 [ok]
+[CD] submit pressure-1=15.88 [ok]
+[CD] submit voltage-1=790.24 [ok]
+[CD] submit current-1=189.87 [ok]
+[CD] submit power-1=341.81 [ok]
+[CD] submit analog-input-1=815 [ok]
+[CD] submit analog-input-2=408 [ok]
+[CD] submit count-1=304 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"231","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"232","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"233","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"234","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"235","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_97KDHNQgWhP0YuIJMjoe82K1","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=587.61 [ok]
+[CD] submit humidity-1=481.96 [ok]
+[CD] submit pressure-1=221.06 [ok]
+[CD] submit voltage-1=543.88 [ok]
+[CD] submit current-1=932.95 [ok]
+[CD] submit power-1=68.06 [ok]
+[CD] submit analog-input-1=156 [ok]
+[CD] submit analog-input-2=682 [ok]
+[CD] submit count-1=352 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"241","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"242","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"243","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"244","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=243.65 [ok]
+[CD] submit humidity-1=474.33 [ok]
+[CD] submit pressure-1=98.07 [ok]
+[CD] submit voltage-1=446.95 [ok]
+[CD] submit current-1=484.22 [ok]
+[CD] submit power-1=242 [ok]
+[CD] submit analog-input-1=508 [ok]
+[CD] submit analog-input-2=1 [ok]
+[CD] submit count-1=58 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"251","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"252","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"253","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"254","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"255","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=740.14 [ok]
+[CD] submit humidity-1=940.46 [ok]
+[CD] submit pressure-1=764.18 [ok]
+[CD] submit voltage-1=978.52 [ok]
+[CD] submit current-1=11.44 [ok]
+[CD] submit power-1=124.52 [ok]
+[CD] submit analog-input-1=385 [ok]
+[CD] submit analog-input-2=633 [ok]
+[CD] submit count-1=375 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"261","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"262","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"263","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"264","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"265","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=77.76 [ok]
+[CD] submit humidity-1=834.21 [ok]
+[CD] submit pressure-1=255.64 [ok]
+[CD] submit voltage-1=349.49 [ok]
+[CD] submit current-1=183.12 [ok]
+[CD] submit power-1=966.42 [ok]
+[CD] submit analog-input-1=226 [ok]
+[CD] submit analog-input-2=85 [ok]
+[CD] submit count-1=658 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"271","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"272","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"273","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"274","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"275","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=80.8 [ok]
+[CD] submit humidity-1=343.63 [ok]
+[CD] submit pressure-1=399.83 [ok]
+[CD] submit voltage-1=722.91 [ok]
+[CD] submit current-1=369.25 [ok]
+[CD] submit power-1=931.61 [ok]
+[CD] submit analog-input-1=460 [ok]
+[CD] submit analog-input-2=333 [ok]
+[CD] submit count-1=37 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"281","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"282","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"283","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"284","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"285","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=983.04 [ok]
+[CD] submit humidity-1=340.07 [ok]
+[CD] submit pressure-1=271.64 [ok]
+[CD] submit voltage-1=932.41 [ok]
+[CD] submit current-1=917.73 [ok]
+[CD] submit power-1=893.16 [ok]
+[CD] submit analog-input-1=574 [ok]
+[CD] submit analog-input-2=125 [ok]
+[CD] submit count-1=357 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"291","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"292","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"293","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"294","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"295","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=748.1 [ok]
+[CD] submit humidity-1=131.43 [ok]
+[CD] submit pressure-1=927.67 [ok]
+[CD] submit voltage-1=84.86 [ok]
+[CD] submit current-1=105.94 [ok]
+[CD] submit power-1=879.9 [ok]
+[CD] submit analog-input-1=658 [ok]
+[CD] submit analog-input-2=917 [ok]
+[CD] submit count-1=126 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"301","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"302","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"303","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"304","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"305","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=230.95 [ok]
+[CD] submit humidity-1=65.32 [ok]
+[CD] submit pressure-1=87.51 [ok]
+[CD] submit voltage-1=993.14 [ok]
+[CD] submit current-1=327.22 [ok]
+[CD] submit power-1=92.68 [ok]
+[CD] submit analog-input-1=721 [ok]
+[CD] submit analog-input-2=782 [ok]
+[CD] submit count-1=252 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"311","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"312","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"313","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"314","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"315","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=210.63 [ok]
+[CD] submit humidity-1=514.18 [ok]
+[CD] submit pressure-1=541.32 [ok]
+[CD] submit voltage-1=357.34 [ok]
+[CD] submit current-1=818.6 [ok]
+[CD] submit power-1=555.94 [ok]
+[CD] submit analog-input-1=863 [ok]
+[CD] submit analog-input-2=940 [ok]
+[CD] submit count-1=956 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"321","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"322","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"323","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"324","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"325","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=709.48 [ok]
+[CD] submit humidity-1=783.34 [ok]
+[CD] submit pressure-1=126.7 [ok]
+[CD] submit voltage-1=698.23 [ok]
+[CD] submit current-1=252.59 [ok]
+[CD] submit power-1=490.62 [ok]
+[CD] submit analog-input-1=229 [ok]
+[CD] submit analog-input-2=944 [ok]
+[CD] submit count-1=42 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"331","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"332","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"333","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"334","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"335","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=743.39 [ok]
+[CD] submit humidity-1=199.45 [ok]
+[CD] submit pressure-1=307.62 [ok]
+[CD] submit voltage-1=532.32 [ok]
+[CD] submit current-1=319.28 [ok]
+[CD] submit power-1=236.3 [ok]
+[CD] submit analog-input-1=860 [ok]
+[CD] submit analog-input-2=236 [ok]
+[CD] submit count-1=821 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"341","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"342","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"343","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"344","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"345","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=696.77 [ok]
+[CD] submit humidity-1=985.28 [ok]
+[CD] submit pressure-1=302.44 [ok]
+[CD] submit voltage-1=935.48 [ok]
+[CD] submit current-1=146.92 [ok]
+[CD] submit power-1=614.27 [ok]
+[CD] submit analog-input-1=493 [ok]
+[CD] submit analog-input-2=56 [ok]
+[CD] submit count-1=701 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"351","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"352","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"353","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"354","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"355","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_bWguJTUYEYpRZiEz5pEaIRn6","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=525.05 [ok]
+[CD] submit humidity-1=836.92 [ok]
+[CD] submit pressure-1=660.18 [ok]
+[CD] submit voltage-1=19.58 [ok]
+[CD] submit current-1=364.32 [ok]
+[CD] submit power-1=666.73 [ok]
+[CD] submit analog-input-1=720 [ok]
+[CD] submit analog-input-2=331 [ok]
+[CD] submit count-1=988 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"361","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"362","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"363","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"364","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=821.93 [ok]
+[CD] submit humidity-1=494.21 [ok]
+[CD] submit pressure-1=913.54 [ok]
+[CD] submit voltage-1=474.49 [ok]
+[CD] submit current-1=29.22 [ok]
+[CD] submit power-1=209.19 [ok]
+[CD] submit analog-input-1=71 [ok]
+[CD] submit analog-input-2=362 [ok]
+[CD] submit count-1=207 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"371","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"372","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"373","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"374","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"375","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=461.26 [ok]
+[CD] submit humidity-1=202.81 [ok]
+[CD] submit pressure-1=991.56 [ok]
+[CD] submit voltage-1=780.36 [ok]
+[CD] submit current-1=329.69 [ok]
+[CD] submit power-1=90.81 [ok]
+[CD] submit analog-input-1=347 [ok]
+[CD] submit analog-input-2=256 [ok]
+[CD] submit count-1=88 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"381","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"382","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"383","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"384","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"385","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=189.21 [ok]
+[CD] submit humidity-1=405.03 [ok]
+[CD] submit pressure-1=703.65 [ok]
+[CD] submit voltage-1=265.78 [ok]
+[CD] submit current-1=387.94 [ok]
+[CD] submit power-1=722.6 [ok]
+[CD] submit analog-input-1=192 [ok]
+[CD] submit analog-input-2=765 [ok]
+[CD] submit count-1=619 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"391","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"392","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"393","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"394","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"395","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=215.81 [ok]
+[CD] submit humidity-1=501.75 [ok]
+[CD] submit pressure-1=433.85 [ok]
+[CD] submit voltage-1=488.41 [ok]
+[CD] submit current-1=416.19 [ok]
+[CD] submit power-1=820.66 [ok]
+[CD] submit analog-input-1=81 [ok]
+[CD] submit analog-input-2=307 [ok]
+[CD] submit count-1=588 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"401","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"402","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"403","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"404","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"405","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=412.2 [ok]
+[CD] submit humidity-1=392.74 [ok]
+[CD] submit pressure-1=990.18 [ok]
+[CD] submit voltage-1=63.96 [ok]
+[CD] submit current-1=569.83 [ok]
+[CD] submit power-1=129.58 [ok]
+[CD] submit analog-input-1=835 [ok]
+[CD] submit analog-input-2=22 [ok]
+[CD] submit count-1=938 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"411","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"412","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"413","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"414","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"415","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=786.77 [ok]
+[CD] submit humidity-1=728.49 [ok]
+[CD] submit pressure-1=669.57 [ok]
+[CD] submit voltage-1=23.94 [ok]
+[CD] submit current-1=837.37 [ok]
+[CD] submit power-1=99.38 [ok]
+[CD] submit analog-input-1=857 [ok]
+[CD] submit analog-input-2=445 [ok]
+[CD] submit count-1=316 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"421","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"422","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"423","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"424","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"425","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=207.91 [ok]
+[CD] submit humidity-1=706.58 [ok]
+[CD] submit pressure-1=409.67 [ok]
+[CD] submit voltage-1=385.94 [ok]
+[CD] submit current-1=592.5 [ok]
+[CD] submit power-1=278.3 [ok]
+[CD] submit analog-input-1=276 [ok]
+[CD] submit analog-input-2=665 [ok]
+[CD] submit count-1=712 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"431","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"432","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"433","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"434","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"435","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=969.94 [ok]
+[CD] submit humidity-1=174.61 [ok]
+[CD] submit pressure-1=472.73 [ok]
+[CD] submit voltage-1=358.67 [ok]
+[CD] submit current-1=102.47 [ok]
+[CD] submit power-1=347.34 [ok]
+[CD] submit analog-input-1=273 [ok]
+[CD] submit analog-input-2=244 [ok]
+[CD] submit count-1=374 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"441","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"442","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"443","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"444","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"445","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=766.13 [ok]
+[CD] submit humidity-1=855.85 [ok]
+[CD] submit pressure-1=189.07 [ok]
+[CD] submit voltage-1=962.81 [ok]
+[CD] submit current-1=733.95 [ok]
+[CD] submit power-1=145.85 [ok]
+[CD] submit analog-input-1=345 [ok]
+[CD] submit analog-input-2=508 [ok]
+[CD] submit count-1=392 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"451","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"452","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"453","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"454","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"455","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=5.8 [ok]
+[CD] submit humidity-1=118.49 [ok]
+[CD] submit pressure-1=517.87 [ok]
+[CD] submit voltage-1=602.94 [ok]
+[CD] submit current-1=486.6 [ok]
+[CD] submit power-1=318.3 [ok]
+[CD] submit analog-input-1=956 [ok]
+[CD] submit analog-input-2=920 [ok]
+[CD] submit count-1=739 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"461","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"462","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"463","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"464","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"465","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=195.94 [ok]
+[CD] submit humidity-1=257.77 [ok]
+[CD] submit pressure-1=445.95 [ok]
+[CD] submit voltage-1=184.74 [ok]
+[CD] submit current-1=339.08 [ok]
+[CD] submit power-1=629.13 [ok]
+[CD] submit analog-input-1=205 [ok]
+[CD] submit analog-input-2=163 [ok]
+[CD] submit count-1=755 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"471","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"472","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"473","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"474","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"475","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_WCRpqjZ4NEQ3fIRAdLwAFYbG","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=453.32 [ok]
+[CD] submit humidity-1=79.99 [ok]
+[CD] submit pressure-1=391.8 [ok]
+[CD] submit voltage-1=475.31 [ok]
+[CD] submit current-1=202.72 [ok]
+[CD] submit power-1=131.91 [ok]
+[CD] submit analog-input-1=625 [ok]
+[CD] submit analog-input-2=427 [ok]
+[CD] submit count-1=530 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"481","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"482","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"483","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"484","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=630.46 [ok]
+[CD] submit humidity-1=714.72 [ok]
+[CD] submit pressure-1=569.07 [ok]
+[CD] submit voltage-1=796.91 [ok]
+[CD] submit current-1=636.83 [ok]
+[CD] submit power-1=62.79 [ok]
+[CD] submit analog-input-1=416 [ok]
+[CD] submit analog-input-2=651 [ok]
+[CD] submit count-1=410 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"491","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"492","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"493","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"494","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"495","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=721.78 [ok]
+[CD] submit humidity-1=389.24 [ok]
+[CD] submit pressure-1=68.45 [ok]
+[CD] submit voltage-1=6.47 [ok]
+[CD] submit current-1=712.74 [ok]
+[CD] submit power-1=299.67 [ok]
+[CD] submit analog-input-1=541 [ok]
+[CD] submit analog-input-2=821 [ok]
+[CD] submit count-1=164 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"501","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"502","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"503","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"504","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"505","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=107.76 [ok]
+[CD] submit humidity-1=732.93 [ok]
+[CD] submit pressure-1=831.56 [ok]
+[CD] submit voltage-1=478.57 [ok]
+[CD] submit current-1=605.96 [ok]
+[CD] submit power-1=841.2 [ok]
+[CD] submit analog-input-1=273 [ok]
+[CD] submit analog-input-2=301 [ok]
+[CD] submit count-1=500 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"511","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"512","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"513","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"514","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"515","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=846.8 [ok]
+[CD] submit humidity-1=486.89 [ok]
+[CD] submit pressure-1=462.42 [ok]
+[CD] submit voltage-1=733.71 [ok]
+[CD] submit current-1=674.39 [ok]
+[CD] submit power-1=258.13 [ok]
+[CD] submit analog-input-1=401 [ok]
+[CD] submit analog-input-2=904 [ok]
+[CD] submit count-1=707 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"521","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"522","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"523","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"524","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"525","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=120.54 [ok]
+[CD] submit humidity-1=776.08 [ok]
+[CD] submit pressure-1=664.17 [ok]
+[CD] submit voltage-1=974.8 [ok]
+[CD] submit current-1=905.86 [ok]
+[CD] submit power-1=473.39 [ok]
+[CD] submit analog-input-1=685 [ok]
+[CD] submit analog-input-2=905 [ok]
+[CD] submit count-1=354 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"531","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"532","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"533","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"534","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"535","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=854.38 [ok]
+[CD] submit humidity-1=22.6 [ok]
+[CD] submit pressure-1=226.1 [ok]
+[CD] submit voltage-1=745.97 [ok]
+[CD] submit current-1=290.27 [ok]
+[CD] submit power-1=78.02 [ok]
+[CD] submit analog-input-1=755 [ok]
+[CD] submit analog-input-2=825 [ok]
+[CD] submit count-1=149 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"541","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"542","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"543","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"544","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"545","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=20.31 [ok]
+[CD] submit humidity-1=50.94 [ok]
+[CD] submit pressure-1=527.45 [ok]
+[CD] submit voltage-1=324.41 [ok]
+[CD] submit current-1=354.98 [ok]
+[CD] submit power-1=725.6 [ok]
+[CD] submit analog-input-1=487 [ok]
+[CD] submit analog-input-2=798 [ok]
+[CD] submit count-1=380 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"551","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"552","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"553","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"554","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"555","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=117.05 [ok]
+[CD] submit humidity-1=893.22 [ok]
+[CD] submit pressure-1=662.77 [ok]
+[CD] submit voltage-1=953.19 [ok]
+[CD] submit current-1=135.02 [ok]
+[CD] submit power-1=825.12 [ok]
+[CD] submit analog-input-1=905 [ok]
+[CD] submit analog-input-2=286 [ok]
+[CD] submit count-1=773 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"561","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"562","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"563","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"564","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"565","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=804.88 [ok]
+[CD] submit humidity-1=50.39 [ok]
+[CD] submit pressure-1=39.18 [ok]
+[CD] submit voltage-1=610.6 [ok]
+[CD] submit current-1=384.52 [ok]
+[CD] submit power-1=546.3 [ok]
+[CD] submit analog-input-1=489 [ok]
+[CD] submit analog-input-2=647 [ok]
+[CD] submit count-1=559 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"571","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"572","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"573","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"574","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"575","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=857.81 [ok]
+[CD] submit humidity-1=678.87 [ok]
+[CD] submit pressure-1=121.08 [ok]
+[CD] submit voltage-1=8.11 [ok]
+[CD] submit current-1=406.79 [ok]
+[CD] submit power-1=261.6 [ok]
+[CD] submit analog-input-1=122 [ok]
+[CD] submit analog-input-2=563 [ok]
+[CD] submit count-1=559 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"581","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"582","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"583","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"584","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"585","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=848.88 [ok]
+[CD] submit humidity-1=919.61 [ok]
+[CD] submit pressure-1=744.6 [ok]
+[CD] submit voltage-1=78.84 [ok]
+[CD] submit current-1=557.58 [ok]
+[CD] submit power-1=639.65 [ok]
+[CD] submit analog-input-1=35 [ok]
+[CD] submit analog-input-2=989 [ok]
+[CD] submit count-1=683 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"591","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"592","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"593","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"594","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"595","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_eS9ESCMIK7DjDnlo0e1hCeVh","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=144.04 [ok]
+[CD] submit humidity-1=711.63 [ok]
+[CD] submit pressure-1=299.18 [ok]
+[CD] submit voltage-1=431 [ok]
+[CD] submit current-1=760.35 [ok]
+[CD] submit power-1=631.42 [ok]
+[CD] submit analog-input-1=280 [ok]
+[CD] submit analog-input-2=60 [ok]
+[CD] submit count-1=892 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"601","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"602","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"603","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"604","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=543 [ok]
+[CD] submit humidity-1=210.66 [ok]
+[CD] submit pressure-1=589.23 [ok]
+[CD] submit voltage-1=792.32 [ok]
+[CD] submit current-1=403.47 [ok]
+[CD] submit power-1=994.51 [ok]
+[CD] submit analog-input-1=160 [ok]
+[CD] submit analog-input-2=757 [ok]
+[CD] submit count-1=1 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"611","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"612","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"613","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"614","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"615","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=821.76 [ok]
+[CD] submit humidity-1=245.18 [ok]
+[CD] submit pressure-1=657.66 [ok]
+[CD] submit voltage-1=546.18 [ok]
+[CD] submit current-1=586.99 [ok]
+[CD] submit power-1=492.08 [ok]
+[CD] submit analog-input-1=121 [ok]
+[CD] submit analog-input-2=37 [ok]
+[CD] submit count-1=472 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"621","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"622","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"623","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"624","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"625","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=603.11 [ok]
+[CD] submit humidity-1=847.58 [ok]
+[CD] submit pressure-1=556.53 [ok]
+[CD] submit voltage-1=880.32 [ok]
+[CD] submit current-1=934.7 [ok]
+[CD] submit power-1=68.85 [ok]
+[CD] submit analog-input-1=990 [ok]
+[CD] submit analog-input-2=535 [ok]
+[CD] submit count-1=751 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"631","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"632","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"633","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"634","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"635","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=690.6 [ok]
+[CD] submit humidity-1=771.44 [ok]
+[CD] submit pressure-1=84.41 [ok]
+[CD] submit voltage-1=255.29 [ok]
+[CD] submit current-1=591.65 [ok]
+[CD] submit power-1=833.57 [ok]
+[CD] submit analog-input-1=366 [ok]
+[CD] submit analog-input-2=609 [ok]
+[CD] submit count-1=667 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"641","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"642","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"643","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"644","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"645","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=852.71 [ok]
+[CD] submit humidity-1=380.79 [ok]
+[CD] submit pressure-1=970.71 [ok]
+[CD] submit voltage-1=133.4 [ok]
+[CD] submit current-1=915.85 [ok]
+[CD] submit power-1=144.89 [ok]
+[CD] submit analog-input-1=522 [ok]
+[CD] submit analog-input-2=31 [ok]
+[CD] submit count-1=943 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"651","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"652","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"653","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"654","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"655","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=269.93 [ok]
+[CD] submit humidity-1=958 [ok]
+[CD] submit pressure-1=307.71 [ok]
+[CD] submit voltage-1=490.44 [ok]
+[CD] submit current-1=699.83 [ok]
+[CD] submit power-1=438 [ok]
+[CD] submit analog-input-1=400 [ok]
+[CD] submit analog-input-2=497 [ok]
+[CD] submit count-1=175 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"661","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"662","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"663","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"664","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"665","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=939 [ok]
+[CD] submit humidity-1=667.3 [ok]
+[CD] submit pressure-1=32.73 [ok]
+[CD] submit voltage-1=532.49 [ok]
+[CD] submit current-1=543.24 [ok]
+[CD] submit power-1=874.36 [ok]
+[CD] submit analog-input-1=298 [ok]
+[CD] submit analog-input-2=435 [ok]
+[CD] submit count-1=502 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"671","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"672","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"673","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"674","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"675","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=183 [ok]
+[CD] submit humidity-1=993.84 [ok]
+[CD] submit pressure-1=26.68 [ok]
+[CD] submit voltage-1=365.39 [ok]
+[CD] submit current-1=29.81 [ok]
+[CD] submit power-1=139.63 [ok]
+[CD] submit analog-input-1=190 [ok]
+[CD] submit analog-input-2=717 [ok]
+[CD] submit count-1=995 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"681","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"682","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"683","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"684","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"685","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=327.76 [ok]
+[CD] submit humidity-1=467.29 [ok]
+[CD] submit pressure-1=882.4 [ok]
+[CD] submit voltage-1=337.57 [ok]
+[CD] submit current-1=746.31 [ok]
+[CD] submit power-1=474.35 [ok]
+[CD] submit analog-input-1=909 [ok]
+[CD] submit analog-input-2=135 [ok]
+[CD] submit count-1=698 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"691","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"692","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"693","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"694","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"695","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=779.92 [ok]
+[CD] submit humidity-1=53.86 [ok]
+[CD] submit pressure-1=221.89 [ok]
+[CD] submit voltage-1=269.84 [ok]
+[CD] submit current-1=335.67 [ok]
+[CD] submit power-1=330.32 [ok]
+[CD] submit analog-input-1=940 [ok]
+[CD] submit analog-input-2=386 [ok]
+[CD] submit count-1=33 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"701","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"702","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"703","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"704","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"705","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=659.14 [ok]
+[CD] submit humidity-1=227.17 [ok]
+[CD] submit pressure-1=332.27 [ok]
+[CD] submit voltage-1=217.85 [ok]
+[CD] submit current-1=154.35 [ok]
+[CD] submit power-1=641.77 [ok]
+[CD] submit analog-input-1=420 [ok]
+[CD] submit analog-input-2=200 [ok]
+[CD] submit count-1=84 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"711","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"712","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"713","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"714","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"715","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_IjvFIUaK0X4ChSTs9pu0ZB0s","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=957.42 [ok]
+[CD] submit humidity-1=380.17 [ok]
+[CD] submit pressure-1=880.61 [ok]
+[CD] submit voltage-1=459.84 [ok]
+[CD] submit current-1=34.65 [ok]
+[CD] submit power-1=680.56 [ok]
+[CD] submit analog-input-1=415 [ok]
+[CD] submit analog-input-2=528 [ok]
+[CD] submit count-1=394 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"721","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"722","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"723","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"724","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=139.01 [ok]
+[CD] submit humidity-1=925.3 [ok]
+[CD] submit pressure-1=323.51 [ok]
+[CD] submit voltage-1=713.4 [ok]
+[CD] submit current-1=629.26 [ok]
+[CD] submit power-1=722.35 [ok]
+[CD] submit analog-input-1=983 [ok]
+[CD] submit analog-input-2=244 [ok]
+[CD] submit count-1=121 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"731","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"732","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"733","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"734","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"735","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=912.06 [ok]
+[CD] submit humidity-1=43.39 [ok]
+[CD] submit pressure-1=795.51 [ok]
+[CD] submit voltage-1=747.99 [ok]
+[CD] submit current-1=24.61 [ok]
+[CD] submit power-1=951.32 [ok]
+[CD] submit analog-input-1=750 [ok]
+[CD] submit analog-input-2=677 [ok]
+[CD] submit count-1=447 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"741","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"742","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"743","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"744","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"745","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=134.43 [ok]
+[CD] submit humidity-1=783.06 [ok]
+[CD] submit pressure-1=312.47 [ok]
+[CD] submit voltage-1=606.35 [ok]
+[CD] submit current-1=533.02 [ok]
+[CD] submit power-1=976.53 [ok]
+[CD] submit analog-input-1=88 [ok]
+[CD] submit analog-input-2=700 [ok]
+[CD] submit count-1=683 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"751","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"752","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"753","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"754","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"755","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=916.28 [ok]
+[CD] submit humidity-1=668.73 [ok]
+[CD] submit pressure-1=346.15 [ok]
+[CD] submit voltage-1=585.65 [ok]
+[CD] submit current-1=787.06 [ok]
+[CD] submit power-1=992.7 [ok]
+[CD] submit analog-input-1=785 [ok]
+[CD] submit analog-input-2=714 [ok]
+[CD] submit count-1=879 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"761","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"762","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"763","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"764","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"765","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=117.07 [ok]
+[CD] submit humidity-1=582.99 [ok]
+[CD] submit pressure-1=887.89 [ok]
+[CD] submit voltage-1=442.26 [ok]
+[CD] submit current-1=787.4 [ok]
+[CD] submit power-1=688.82 [ok]
+[CD] submit analog-input-1=981 [ok]
+[CD] submit analog-input-2=227 [ok]
+[CD] submit count-1=636 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"771","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"772","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"773","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"774","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"775","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=880.99 [ok]
+[CD] submit humidity-1=150.22 [ok]
+[CD] submit pressure-1=17.25 [ok]
+[CD] submit voltage-1=32.24 [ok]
+[CD] submit current-1=504.17 [ok]
+[CD] submit power-1=239.92 [ok]
+[CD] submit analog-input-1=707 [ok]
+[CD] submit analog-input-2=550 [ok]
+[CD] submit count-1=467 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"781","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"782","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"783","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"784","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"785","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=994.2 [ok]
+[CD] submit humidity-1=144.69 [ok]
+[CD] submit pressure-1=463.57 [ok]
+[CD] submit voltage-1=182.83 [ok]
+[CD] submit current-1=86.78 [ok]
+[CD] submit power-1=30.2 [ok]
+[CD] submit analog-input-1=495 [ok]
+[CD] submit analog-input-2=886 [ok]
+[CD] submit count-1=708 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"791","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"792","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"793","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"794","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"795","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=521.87 [ok]
+[CD] submit humidity-1=125.31 [ok]
+[CD] submit pressure-1=977.19 [ok]
+[CD] submit voltage-1=203.73 [ok]
+[CD] submit current-1=614.88 [ok]
+[CD] submit power-1=19.59 [ok]
+[CD] submit analog-input-1=692 [ok]
+[CD] submit analog-input-2=24 [ok]
+[CD] submit count-1=197 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"801","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"802","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"803","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"804","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"805","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=967.65 [ok]
+[CD] submit humidity-1=407.03 [ok]
+[CD] submit pressure-1=605.85 [ok]
+[CD] submit voltage-1=897.59 [ok]
+[CD] submit current-1=403.13 [ok]
+[CD] submit power-1=552.76 [ok]
+[CD] submit analog-input-1=631 [ok]
+[CD] submit analog-input-2=456 [ok]
+[CD] submit count-1=663 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"811","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"812","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"813","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"814","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"815","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=840.01 [ok]
+[CD] submit humidity-1=221.2 [ok]
+[CD] submit pressure-1=454.88 [ok]
+[CD] submit voltage-1=446.25 [ok]
+[CD] submit current-1=2.92 [ok]
+[CD] submit power-1=503.5 [ok]
+[CD] submit analog-input-1=619 [ok]
+[CD] submit analog-input-2=380 [ok]
+[CD] submit count-1=433 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"821","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"822","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"823","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"824","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"825","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=831.23 [ok]
+[CD] submit humidity-1=780.58 [ok]
+[CD] submit pressure-1=718.65 [ok]
+[CD] submit voltage-1=592.55 [ok]
+[CD] submit current-1=448.07 [ok]
+[CD] submit power-1=796.09 [ok]
+[CD] submit analog-input-1=247 [ok]
+[CD] submit analog-input-2=525 [ok]
+[CD] submit count-1=957 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"831","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"832","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"833","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"834","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"835","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_aSSqZCxFDhLzWeKhmIZckItb","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=45.87 [ok]
+[CD] submit humidity-1=843.27 [ok]
+[CD] submit pressure-1=287.33 [ok]
+[CD] submit voltage-1=113.67 [ok]
+[CD] submit current-1=129.04 [ok]
+[CD] submit power-1=159.72 [ok]
+[CD] submit analog-input-1=509 [ok]
+[CD] submit analog-input-2=717 [ok]
+[CD] submit count-1=13 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"841","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"842","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"843","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"844","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=993.7 [ok]
+[CD] submit humidity-1=139.56 [ok]
+[CD] submit pressure-1=859.59 [ok]
+[CD] submit voltage-1=758.06 [ok]
+[CD] submit current-1=664.28 [ok]
+[CD] submit power-1=368.49 [ok]
+[CD] submit analog-input-1=202 [ok]
+[CD] submit analog-input-2=657 [ok]
+[CD] submit count-1=764 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"851","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"852","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"853","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"854","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"855","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=341.84 [ok]
+[CD] submit humidity-1=700.55 [ok]
+[CD] submit pressure-1=689.94 [ok]
+[CD] submit voltage-1=865.63 [ok]
+[CD] submit current-1=197.09 [ok]
+[CD] submit power-1=774.4 [ok]
+[CD] submit analog-input-1=62 [ok]
+[CD] submit analog-input-2=966 [ok]
+[CD] submit count-1=271 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"861","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"862","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"863","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"864","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"865","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=621.61 [ok]
+[CD] submit humidity-1=473 [ok]
+[CD] submit pressure-1=946.05 [ok]
+[CD] submit voltage-1=913.25 [ok]
+[CD] submit current-1=854.01 [ok]
+[CD] submit power-1=339.67 [ok]
+[CD] submit analog-input-1=758 [ok]
+[CD] submit analog-input-2=25 [ok]
+[CD] submit count-1=688 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"871","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"872","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"873","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"874","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"875","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=416.2 [ok]
+[CD] submit humidity-1=607.78 [ok]
+[CD] submit pressure-1=123.53 [ok]
+[CD] submit voltage-1=106.88 [ok]
+[CD] submit current-1=628.78 [ok]
+[CD] submit power-1=97.24 [ok]
+[CD] submit analog-input-1=824 [ok]
+[CD] submit analog-input-2=200 [ok]
+[CD] submit count-1=306 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"881","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"882","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"883","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"884","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"885","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=576.36 [ok]
+[CD] submit humidity-1=36.87 [ok]
+[CD] submit pressure-1=249.37 [ok]
+[CD] submit voltage-1=338.89 [ok]
+[CD] submit current-1=502.03 [ok]
+[CD] submit power-1=311.88 [ok]
+[CD] submit analog-input-1=339 [ok]
+[CD] submit analog-input-2=156 [ok]
+[CD] submit count-1=235 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"891","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"892","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"893","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"894","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"895","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=587.83 [ok]
+[CD] submit humidity-1=828.7 [ok]
+[CD] submit pressure-1=469.25 [ok]
+[CD] submit voltage-1=902.93 [ok]
+[CD] submit current-1=454.61 [ok]
+[CD] submit power-1=167.66 [ok]
+[CD] submit analog-input-1=485 [ok]
+[CD] submit analog-input-2=506 [ok]
+[CD] submit count-1=211 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"901","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"902","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"903","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"904","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"905","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=767.95 [ok]
+[CD] submit humidity-1=815.56 [ok]
+[CD] submit pressure-1=219.4 [ok]
+[CD] submit voltage-1=787.17 [ok]
+[CD] submit current-1=63.91 [ok]
+[CD] submit power-1=160.85 [ok]
+[CD] submit analog-input-1=3 [ok]
+[CD] submit analog-input-2=995 [ok]
+[CD] submit count-1=86 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"911","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"912","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"913","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"914","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"915","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=707.67 [ok]
+[CD] submit humidity-1=219.47 [ok]
+[CD] submit pressure-1=293.03 [ok]
+[CD] submit voltage-1=761.53 [ok]
+[CD] submit current-1=487.45 [ok]
+[CD] submit power-1=768.79 [ok]
+[CD] submit analog-input-1=66 [ok]
+[CD] submit analog-input-2=766 [ok]
+[CD] submit count-1=642 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"921","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"922","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"923","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"924","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"925","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=773.53 [ok]
+[CD] submit humidity-1=408.05 [ok]
+[CD] submit pressure-1=259.15 [ok]
+[CD] submit voltage-1=351.28 [ok]
+[CD] submit current-1=320.72 [ok]
+[CD] submit power-1=920.72 [ok]
+[CD] submit analog-input-1=521 [ok]
+[CD] submit analog-input-2=303 [ok]
+[CD] submit count-1=586 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"931","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"932","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"933","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"934","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"935","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=965.7 [ok]
+[CD] submit humidity-1=592.64 [ok]
+[CD] submit pressure-1=512.27 [ok]
+[CD] submit voltage-1=614.09 [ok]
+[CD] submit current-1=615.38 [ok]
+[CD] submit power-1=60.28 [ok]
+[CD] submit analog-input-1=923 [ok]
+[CD] submit analog-input-2=696 [ok]
+[CD] submit count-1=59 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"941","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"942","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"943","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"944","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"945","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=503.31 [ok]
+[CD] submit humidity-1=197.25 [ok]
+[CD] submit pressure-1=844.42 [ok]
+[CD] submit voltage-1=654.34 [ok]
+[CD] submit current-1=150.18 [ok]
+[CD] submit power-1=331.68 [ok]
+[CD] submit analog-input-1=199 [ok]
+[CD] submit analog-input-2=182 [ok]
+[CD] submit count-1=35 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"951","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"952","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"953","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"954","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"955","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_aGykpiyUopSuASoRM51vVzDN","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=274.6 [ok]
+[CD] submit humidity-1=671.1 [ok]
+[CD] submit pressure-1=447.2 [ok]
+[CD] submit voltage-1=773.92 [ok]
+[CD] submit current-1=591.3 [ok]
+[CD] submit power-1=800.07 [ok]
+[CD] submit analog-input-1=554 [ok]
+[CD] submit analog-input-2=757 [ok]
+[CD] submit count-1=993 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"961","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"962","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"963","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"964","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=955.97 [ok]
+[CD] submit humidity-1=492.6 [ok]
+[CD] submit pressure-1=815.53 [ok]
+[CD] submit voltage-1=484.81 [ok]
+[CD] submit current-1=234.65 [ok]
+[CD] submit power-1=157.87 [ok]
+[CD] submit analog-input-1=467 [ok]
+[CD] submit analog-input-2=687 [ok]
+[CD] submit count-1=797 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"971","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"972","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"973","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"974","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"975","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=888.75 [ok]
+[CD] submit humidity-1=449.4 [ok]
+[CD] submit pressure-1=217.77 [ok]
+[CD] submit voltage-1=946.91 [ok]
+[CD] submit current-1=138.47 [ok]
+[CD] submit power-1=649.21 [ok]
+[CD] submit analog-input-1=198 [ok]
+[CD] submit analog-input-2=151 [ok]
+[CD] submit count-1=870 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"981","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"982","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"983","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"984","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"985","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=321.79 [ok]
+[CD] submit humidity-1=211.1 [ok]
+[CD] submit pressure-1=905.89 [ok]
+[CD] submit voltage-1=669.24 [ok]
+[CD] submit current-1=20.07 [ok]
+[CD] submit power-1=326.79 [ok]
+[CD] submit analog-input-1=796 [ok]
+[CD] submit analog-input-2=53 [ok]
+[CD] submit count-1=145 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"991","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"992","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"993","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"994","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"995","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=456.21 [ok]
+[CD] submit humidity-1=783.03 [ok]
+[CD] submit pressure-1=791.08 [ok]
+[CD] submit voltage-1=528.97 [ok]
+[CD] submit current-1=681.6 [ok]
+[CD] submit power-1=204.29 [ok]
+[CD] submit analog-input-1=445 [ok]
+[CD] submit analog-input-2=958 [ok]
+[CD] submit count-1=573 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1001","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1002","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1003","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1004","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1005","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=821.55 [ok]
+[CD] submit humidity-1=432.04 [ok]
+[CD] submit pressure-1=720.45 [ok]
+[CD] submit voltage-1=333.45 [ok]
+[CD] submit current-1=193.3 [ok]
+[CD] submit power-1=95.19 [ok]
+[CD] submit analog-input-1=709 [ok]
+[CD] submit analog-input-2=808 [ok]
+[CD] submit count-1=648 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1011","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1012","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1013","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1014","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1015","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=120.03 [ok]
+[CD] submit humidity-1=956.33 [ok]
+[CD] submit pressure-1=749.91 [ok]
+[CD] submit voltage-1=576.61 [ok]
+[CD] submit current-1=107.02 [ok]
+[CD] submit power-1=773.82 [ok]
+[CD] submit analog-input-1=994 [ok]
+[CD] submit analog-input-2=414 [ok]
+[CD] submit count-1=901 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1021","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1022","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1023","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1024","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1025","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=414.08 [ok]
+[CD] submit humidity-1=373.23 [ok]
+[CD] submit pressure-1=535.94 [ok]
+[CD] submit voltage-1=286.94 [ok]
+[CD] submit current-1=457.89 [ok]
+[CD] submit power-1=565.07 [ok]
+[CD] submit analog-input-1=2 [ok]
+[CD] submit analog-input-2=565 [ok]
+[CD] submit count-1=340 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1031","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1032","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1033","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1034","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1035","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=662.88 [ok]
+[CD] submit humidity-1=850.36 [ok]
+[CD] submit pressure-1=295.91 [ok]
+[CD] submit voltage-1=349.22 [ok]
+[CD] submit current-1=521.51 [ok]
+[CD] submit power-1=578.12 [ok]
+[CD] submit analog-input-1=514 [ok]
+[CD] submit analog-input-2=978 [ok]
+[CD] submit count-1=71 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1041","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1042","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1043","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1044","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1045","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=213.26 [ok]
+[CD] submit humidity-1=27.82 [ok]
+[CD] submit pressure-1=221.83 [ok]
+[CD] submit voltage-1=887.7 [ok]
+[CD] submit current-1=931.15 [ok]
+[CD] submit power-1=318.25 [ok]
+[CD] submit analog-input-1=288 [ok]
+[CD] submit analog-input-2=396 [ok]
+[CD] submit count-1=975 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1051","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1052","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1053","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1054","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1055","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=331.45 [ok]
+[CD] submit humidity-1=37.22 [ok]
+[CD] submit pressure-1=707.52 [ok]
+[CD] submit voltage-1=959.82 [ok]
+[CD] submit current-1=646.51 [ok]
+[CD] submit power-1=796.11 [ok]
+[CD] submit analog-input-1=515 [ok]
+[CD] submit analog-input-2=277 [ok]
+[CD] submit count-1=837 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1061","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1062","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1063","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1064","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1065","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=723.34 [ok]
+[CD] submit humidity-1=488.52 [ok]
+[CD] submit pressure-1=167.87 [ok]
+[CD] submit voltage-1=804.36 [ok]
+[CD] submit current-1=261.93 [ok]
+[CD] submit power-1=110.84 [ok]
+[CD] submit analog-input-1=655 [ok]
+[CD] submit analog-input-2=268 [ok]
+[CD] submit count-1=806 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1071","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1072","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1073","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1074","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1075","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_JhiuA55nmpVTVWgg6p3aPPRs","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=637.29 [ok]
+[CD] submit humidity-1=501.6 [ok]
+[CD] submit pressure-1=324.94 [ok]
+[CD] submit voltage-1=28.88 [ok]
+[CD] submit current-1=173.6 [ok]
+[CD] submit power-1=582.16 [ok]
+[CD] submit analog-input-1=248 [ok]
+[CD] submit analog-input-2=334 [ok]
+[CD] submit count-1=809 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1081","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1082","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1083","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1084","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=341.22 [ok]
+[CD] submit humidity-1=728.56 [ok]
+[CD] submit pressure-1=707.75 [ok]
+[CD] submit voltage-1=866.32 [ok]
+[CD] submit current-1=442.84 [ok]
+[CD] submit power-1=99.86 [ok]
+[CD] submit analog-input-1=593 [ok]
+[CD] submit analog-input-2=997 [ok]
+[CD] submit count-1=900 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1091","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1092","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1093","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1094","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1095","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=204.51 [ok]
+[CD] submit humidity-1=49.38 [ok]
+[CD] submit pressure-1=441.92 [ok]
+[CD] submit voltage-1=839.97 [ok]
+[CD] submit current-1=45.73 [ok]
+[CD] submit power-1=233.98 [ok]
+[CD] submit analog-input-1=862 [ok]
+[CD] submit analog-input-2=523 [ok]
+[CD] submit count-1=284 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1101","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1102","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1103","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1104","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1105","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=290.76 [ok]
+[CD] submit humidity-1=931.07 [ok]
+[CD] submit pressure-1=314.45 [ok]
+[CD] submit voltage-1=278.44 [ok]
+[CD] submit current-1=495.38 [ok]
+[CD] submit power-1=574.79 [ok]
+[CD] submit analog-input-1=509 [ok]
+[CD] submit analog-input-2=116 [ok]
+[CD] submit count-1=682 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1111","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1112","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1113","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1114","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1115","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=753.08 [ok]
+[CD] submit humidity-1=919.68 [ok]
+[CD] submit pressure-1=350.82 [ok]
+[CD] submit voltage-1=655 [ok]
+[CD] submit current-1=595.28 [ok]
+[CD] submit power-1=261.54 [ok]
+[CD] submit analog-input-1=106 [ok]
+[CD] submit analog-input-2=970 [ok]
+[CD] submit count-1=321 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1121","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1122","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1123","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1124","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1125","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=570.16 [ok]
+[CD] submit humidity-1=767.3 [ok]
+[CD] submit pressure-1=903.38 [ok]
+[CD] submit voltage-1=304.22 [ok]
+[CD] submit current-1=12.63 [ok]
+[CD] submit power-1=127.49 [ok]
+[CD] submit analog-input-1=677 [ok]
+[CD] submit analog-input-2=39 [ok]
+[CD] submit count-1=673 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1131","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1132","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1133","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1134","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1135","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=389.66 [ok]
+[CD] submit humidity-1=533.71 [ok]
+[CD] submit pressure-1=571.98 [ok]
+[CD] submit voltage-1=22.05 [ok]
+[CD] submit current-1=144.67 [ok]
+[CD] submit power-1=165.87 [ok]
+[CD] submit analog-input-1=603 [ok]
+[CD] submit analog-input-2=702 [ok]
+[CD] submit count-1=13 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1141","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1142","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1143","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1144","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1145","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=155.53 [ok]
+[CD] submit humidity-1=387.59 [ok]
+[CD] submit pressure-1=139.74 [ok]
+[CD] submit voltage-1=512.2 [ok]
+[CD] submit current-1=542.58 [ok]
+[CD] submit power-1=170.96 [ok]
+[CD] submit analog-input-1=18 [ok]
+[CD] submit analog-input-2=207 [ok]
+[CD] submit count-1=681 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1151","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1152","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1153","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1154","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1155","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=272.73 [ok]
+[CD] submit humidity-1=841.55 [ok]
+[CD] submit pressure-1=190.62 [ok]
+[CD] submit voltage-1=185.44 [ok]
+[CD] submit current-1=979.32 [ok]
+[CD] submit power-1=147.58 [ok]
+[CD] submit analog-input-1=854 [ok]
+[CD] submit analog-input-2=322 [ok]
+[CD] submit count-1=191 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1161","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1162","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1163","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1164","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1165","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=511.04 [ok]
+[CD] submit humidity-1=827.86 [ok]
+[CD] submit pressure-1=936.82 [ok]
+[CD] submit voltage-1=513.95 [ok]
+[CD] submit current-1=705.25 [ok]
+[CD] submit power-1=917.42 [ok]
+[CD] submit analog-input-1=413 [ok]
+[CD] submit analog-input-2=367 [ok]
+[CD] submit count-1=428 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1171","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1172","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1173","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1174","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1175","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=528.5 [ok]
+[CD] submit humidity-1=619.94 [ok]
+[CD] submit pressure-1=749.61 [ok]
+[CD] submit voltage-1=807.32 [ok]
+[CD] submit current-1=345.93 [ok]
+[CD] submit power-1=823.99 [ok]
+[CD] submit analog-input-1=524 [ok]
+[CD] submit analog-input-2=660 [ok]
+[CD] submit count-1=546 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1181","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1182","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1183","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1184","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1185","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=320.92 [ok]
+[CD] submit humidity-1=512.89 [ok]
+[CD] submit pressure-1=339.91 [ok]
+[CD] submit voltage-1=7.56 [ok]
+[CD] submit current-1=154.26 [ok]
+[CD] submit power-1=524.69 [ok]
+[CD] submit analog-input-1=267 [ok]
+[CD] submit analog-input-2=129 [ok]
+[CD] submit count-1=755 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1191","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1192","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1193","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1194","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1195","success":true,"error":"","errorcode":0}
+[CD] heartbeat [ok]
+[CD] response: {"reqId":"reqid_DVoepUA8kJR1jv8jzHLyqUp7","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=412.48 [ok]
+[CD] submit humidity-1=688.39 [ok]
+[CD] submit pressure-1=99.32 [ok]
+[CD] submit voltage-1=24.55 [ok]
+[CD] submit current-1=671.4 [ok]
+[CD] submit power-1=40.98 [ok]
+[CD] submit analog-input-1=550 [ok]
+[CD] submit analog-input-2=861 [ok]
+[CD] submit count-1=333 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1201","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1202","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1203","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1204","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=99.44 [ok]
+[CD] submit humidity-1=423.8 [ok]
+[CD] submit pressure-1=18.92 [ok]
+[CD] submit voltage-1=291.76 [ok]
+[CD] submit current-1=883.84 [ok]
+[CD] submit power-1=222.63 [ok]
+[CD] submit analog-input-1=607 [ok]
+[CD] submit analog-input-2=508 [ok]
+[CD] submit count-1=30 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1211","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1212","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1213","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1214","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1215","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=831.96 [ok]
+[CD] submit humidity-1=978.86 [ok]
+[CD] submit pressure-1=826.67 [ok]
+[CD] submit voltage-1=779.99 [ok]
+[CD] submit current-1=478.52 [ok]
+[CD] submit power-1=826.58 [ok]
+[CD] submit analog-input-1=251 [ok]
+[CD] submit analog-input-2=435 [ok]
+[CD] submit count-1=631 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1221","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1222","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1223","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1224","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1225","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=503.57 [ok]
+[CD] submit humidity-1=836.52 [ok]
+[CD] submit pressure-1=71.31 [ok]
+[CD] submit voltage-1=460.58 [ok]
+[CD] submit current-1=906.98 [ok]
+[CD] submit power-1=646.23 [ok]
+[CD] submit analog-input-1=275 [ok]
+[CD] submit analog-input-2=970 [ok]
+[CD] submit count-1=862 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1231","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1232","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1233","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1234","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1235","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=13.88 [ok]
+[CD] submit humidity-1=339.06 [ok]
+[CD] submit pressure-1=641.44 [ok]
+[CD] submit voltage-1=511.5 [ok]
+[CD] submit current-1=32.95 [ok]
+[CD] submit power-1=426.19 [ok]
+[CD] submit analog-input-1=420 [ok]
+[CD] submit analog-input-2=392 [ok]
+[CD] submit count-1=665 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1241","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1242","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1243","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1244","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1245","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=496.35 [ok]
+[CD] submit humidity-1=893.8 [ok]
+[CD] submit pressure-1=37.95 [ok]
+[CD] submit voltage-1=988.98 [ok]
+[CD] submit current-1=610.46 [ok]
+[CD] submit power-1=148.03 [ok]
+[CD] submit analog-input-1=80 [ok]
+[CD] submit analog-input-2=631 [ok]
+[CD] submit count-1=31 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1251","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1252","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1253","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1254","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1255","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=63.16 [ok]
+[CD] submit humidity-1=791.22 [ok]
+[CD] submit pressure-1=914.34 [ok]
+[CD] submit voltage-1=558.01 [ok]
+[CD] submit current-1=484.84 [ok]
+[CD] submit power-1=708.29 [ok]
+[CD] submit analog-input-1=194 [ok]
+[CD] submit analog-input-2=670 [ok]
+[CD] submit count-1=536 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1261","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1262","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1263","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1264","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1265","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=869.35 [ok]
+[CD] submit humidity-1=730.08 [ok]
+[CD] submit pressure-1=674.19 [ok]
+[CD] submit voltage-1=610.06 [ok]
+[CD] submit current-1=384.85 [ok]
+[CD] submit power-1=935.36 [ok]
+[CD] submit analog-input-1=473 [ok]
+[CD] submit analog-input-2=372 [ok]
+[CD] submit count-1=703 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1271","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1272","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1273","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1274","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1275","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=426.27 [ok]
+[CD] submit humidity-1=206.76 [ok]
+[CD] submit pressure-1=947.25 [ok]
+[CD] submit voltage-1=806.17 [ok]
+[CD] submit current-1=284.01 [ok]
+[CD] submit power-1=672.4 [ok]
+[CD] submit analog-input-1=183 [ok]
+[CD] submit analog-input-2=876 [ok]
+[CD] submit count-1=587 [ok]
+[CD] submit motion-1=1 [ok]
+[CD] response: {"reqId":"1281","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1282","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1283","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1284","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1285","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=93.38 [ok]
+[CD] submit humidity-1=536.52 [ok]
+[CD] submit pressure-1=173.77 [ok]
+[CD] submit voltage-1=986.04 [ok]
+[CD] submit current-1=891.46 [ok]
+[CD] submit power-1=677.73 [ok]
+[CD] submit analog-input-1=276 [ok]
+[CD] submit analog-input-2=307 [ok]
+[CD] submit count-1=820 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1291","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1292","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1293","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1294","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1295","success":true,"error":"","errorcode":0}
+[CD] submit temperature-1=267.94 [ok]
+[CD] submit humidity-1=845.02 [ok]
+[CD] submit pressure-1=603.23 [ok]
+[CD] submit voltage-1=163.87 [ok]
+[CD] submit current-1=692.46 [ok]
+[CD] submit power-1=947.13 [ok]
+[CD] submit analog-input-1=924 [ok]
+[CD] submit analog-input-2=25 [ok]
+[CD] submit count-1=719 [ok]
+[CD] submit motion-1=0 [ok]
+[CD] response: {"reqId":"1301","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1302","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1303","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1304","success":true,"error":"","errorcode":0}
+[CD] response: {"reqId":"1305","success":true,"error":"","errorcode":0}

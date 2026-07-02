@@ -280,6 +280,8 @@ bool CircuitDigestCloud::_publishSubmit(const CDData* items, size_t count, bool 
         _logf("[CD] submit %s=%g [%s]", items[0].key, items[0].value, ok ? "ok" : "fail");
     } else {
         _logf("[CD] submit %u var(s) [%s]", (unsigned)count, ok ? "ok" : "fail");
+        for (size_t i = 0; i < count; i++)
+            _logf("[CD]   %s=%g", items[i].key, items[i].value);
     }
     return ok;
 }

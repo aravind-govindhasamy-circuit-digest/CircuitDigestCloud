@@ -38,43 +38,67 @@
 Servo servo;
 CircuitDigestCloud CDcloud;
 
-bool pendingPublish = false;
-int  pendingAngle   = 0;
+bool  pendingPublish = false;
+float targetGaugeVal = 90.0f;        
 
-// Called when the dashboard slider changes (value 0–100).
+// Kept as float to perfectly match: void (*)(float)
 void onSlider(float value) {
-  // Clamp to valid range then map 0–100 → 0–180.
-  float clamped = constrain(value, 0.0f, 100.0f);
-  int angle = (int)(clamped * 1.8f);   // 100 * 1.8 = 180
+  float temp = constrain(value, 0.0f, 100.0f);
+  
+  int physicalAngle = (int)(clamped * 1.8f); 
+  servo.write(physicalAngle);
 
-  servo.write(angle);
-  Serial.printf("Slider %.0f → servo %d°\n", clamped, angle);
-
-  // Schedule publish for loop() — avoids calling publish() inside a callback.
-  pendingAngle   = angle;
+  targetGaugeVal = (float)physicalAngle; 
   pendingPublish = true;
+
+  // Debug Printout to the local computer console
+  Serial.print("Dashboard Slider: "); Serial.print(temp);Serial.println(" %");
+  Serial.print("%  -> Real Servo Angle: "); Serial.print(physicalAngle);
+  Serial.println(" deg");
 }
 
 void setup() {
   Serial.begin(115200);
+  
+  int timeout = 0;
+  while (!Serial && timeout < 30) { 
+    delay(100);
+    timeout++;
+  }
+  Serial.println("\n--- Pico W Starting up ---");
 
-  servo.attach(SERVO_PIN);
-  servo.write(0);   // start at 0°
+  servo.attach(SERVO_PIN, 500, 2500); 
+  servo.write(90); // Start at center physical position (90 degrees)
 
+  // Link the dashboard slider to our tracking function
   CDcloud.subscribe(MySlider, onSlider);
 
-  if (!CDcloud.begin(WIFI_SSID, WIFI_PASS, DEVICE_ID, CONNECTION_KEY, API_KEY)) {
-    Serial.println("begin() failed — check credentials");
-    while (true) delay(1000);
-  }
+  // Connect to Circuit Digest Cloud
+  Serial.println("Connecting to Wi-Fi and Cloud Platform...");
+  CDcloud.begin(WIFI_SSID, WIFI_PASS, DEVICE_ID, CONNECTION_KEY, API_KEY);
+  
+  CDcloud.publish(MyAngle, 90.0f);
+  Serial.println("Initialization complete. Sent initial angle 90.0 to gauge.");
 }
 
 void loop() {
+  // Keep the cloud communication alive
   CDcloud.loop();
 
-  // Publish the new servo angle back to the dashboard.
+  // If a new slider position updated targetGaugeVal, send it out now
   if (pendingPublish) {
     pendingPublish = false;
-    CDcloud.publish(MyAngle, (float)pendingAngle);
+    
+    bool success = CDcloud.publish(MyAngle, targetGaugeVal);
+    
+    if(success) {
+      Serial.print("Successfully updated cloud gauge with Angle: ");
+      Serial.print(targetGaugeVal);
+      Serial.println(".0°");
+    } else {
+      Serial.println("Error: Failed to transmit angle payload to cloud.");
+    }
   }
+  
+  delay(15);
 }

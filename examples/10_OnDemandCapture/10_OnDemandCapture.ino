@@ -1,16 +1,9 @@
 // Copyright (c) 2026 Jobit Joseph, Circuit Digest
 // SPDX-License-Identifier: MIT
-// CircuitDigestCloud — Example 10: On-Demand Capture (ESP32-CAM)
-//
-// Complements 07_SendImage (periodic upload): here the device sits idle until the
-// dashboard/AI pushes a value of 1.0 (true) to the designated capture control variable.
-// Then it captures one frame and uploads it via the sendImage() HTTP API.
-//
-// Targets ESP32 boards with an OV2640 camera. Open Serial Monitor at 115200 for [CD] debug
-// output.
+// CircuitDigestCloud — Example 10: On-Demand Capture (ESP32-S3 Rectified with Timestamp)
 
 #if !defined(ESP32)
-#error "This example needs an ESP32-CAM (esp_camera.h is ESP32-only)."
+#error "This example needs an ESP32-S3 (esp_camera.h is ESP32-only)."
 #endif
 
 #include <WiFi.h>
@@ -27,12 +20,12 @@ const char* API_KEY        = "cd_live_xxxxxxxxxxxxxxxx";   // dashboard API key 
 const char* CAPTURE_SLOT   = "capture-1";  // control variable slot (boolean catalog key)
 // ────────────────────────────────────────────────────────────────────────────
 
-#define CAM_PIN_PWDN    -1
-#define CAM_PIN_RESET   -1
-#define CAM_PIN_XCLK    47
-#define CAM_PIN_SIOD    14
-#define CAM_PIN_SIOC    13
-
+// ── Camera pin definitions (ESP32-S3-N16R8 CAM board, OV3660) ───────────────
+#define CAM_PIN_PWDN    -1   
+#define CAM_PIN_RESET   -1   
+#define CAM_PIN_XCLK    15
+#define CAM_PIN_SIOD    4    // SDA
+#define CAM_PIN_SIOC    5    // SCL
 #define CAM_PIN_D7      16   // Y9
 #define CAM_PIN_D6      17   // Y8
 #define CAM_PIN_D5      18   // Y7
@@ -44,6 +37,7 @@ const char* CAPTURE_SLOT   = "capture-1";  // control variable slot (boolean cat
 #define CAM_PIN_VSYNC   6
 #define CAM_PIN_HREF    7
 #define CAM_PIN_PCLK    13
+// ────────────────────────────────────────────────────────────────────────────
 
 CircuitDigestCloud cd;
 
@@ -101,8 +95,12 @@ void handleCapture(float value) {
   if (!fb) {
     Serial.println("[CD] capture failed: esp_camera_fb_get() returned null");
   } else {
-    // sendImage manages TLS internally using Anedya/CircuitDigest credentials
-    bool ok = cd.sendImage(fb->buf, fb->len, "image/jpeg", "capture.jpg");
+    // Generate a unique dynamic filename using the device uptime millisecond timestamp
+    String filename = "capture_" + String(millis()) + ".jpg";
+    Serial.printf("[CD] Uploading image as: %s\n", filename.c_str());
+
+    // Send the image with the new unique timestamped filename
+    bool ok = cd.sendImage(fb->buf, fb->len, "image/jpeg", filename.c_str());
     Serial.printf("[CD] sendImage: %s (err=%d)\n", ok ? "OK" : "FAILED", cd.lastError());
     esp_camera_fb_return(fb);
 
